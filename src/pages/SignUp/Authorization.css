@@ -1,0 +1,74 @@
+/* Адаптация для экранов 480px */
+@media screen and (max-width: 480px) {
+  /* Уменьшаем изображение робота на 80px */
+  img.flex-shrink-0[src*="smileRobot"] {
+    width: 110px !important; /* 190px - 80px */
+    height: 175px !important; /* 255px - 80px */
+    object-fit: contain !important;
+    margin-top: 60px !important; /* 40px + 20px = 60px */
+  }
+
+  /* Центрируем весь контейнер section на мобильных экранах */
+  section.flex.flex-col {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Центрируем родительский div контейнер */
+  section > div.flex.flex-col.items-center {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center !important;
+  }
+
+  /* Центрируем текст на мобильных экранах */
+  section > div.md\:hidden {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  section > div.md\:hidden > h1 {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Центрируем параграф с текстом и сдвигаем влево на 53px (5px + 8px + 10px + 30px) */
+  section > div.md\:hidden > p,
+  .mobile-text-shift {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 350px !important;
+    width: fit-content !important;
+    display: block !important;
+    position: relative !important;
+    left: calc(50% - 53px) !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* Центрируем span внутри параграфа */
+  section > div.md\:hidden > p > span {
+    display: inline !important;
+  }
+}
+

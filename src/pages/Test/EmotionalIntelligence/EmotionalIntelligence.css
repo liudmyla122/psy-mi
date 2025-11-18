@@ -1,0 +1,1536 @@
+.emotional-intelligence-page {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  max-width: 1440px;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.emotional-intelligence-main {
+  flex: 1;
+  padding: 2rem 2rem 2rem 0;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.emotional-intelligence-content {
+  max-width: 100%;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 2rem;
+  box-shadow: none;
+}
+
+.emotional-intelligence-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.emotional-intelligence-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.emotional-intelligence-description strong {
+  color: #000000;
+  font-weight: 700;
+}
+
+.emotional-intelligence-instructions {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.instructions-bubble {
+  position: relative;
+  flex: 0 0 auto;
+  width: 542px;
+  height: 118px;
+}
+
+.instructions-border-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
+  transform: scaleX(-1);
+}
+
+.instructions-content {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem 2rem;
+  margin-top: -10px;
+}
+
+.instructions-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  margin: 0.5rem 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.instructions-text-bold {
+  font-weight: 700;
+}
+
+.instructions-robot {
+  flex-shrink: 0;
+  margin-left: -60px;
+  margin-top: -15px;
+}
+
+.robot-image {
+  width: 260px;
+  height: 320px;
+  object-fit: contain;
+}
+
+.answer-options-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  margin-top: -115px;
+}
+
+.answer-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.answer-option-button {
+  padding: 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-height: 60px;
+}
+
+.answer-option-button:not(.answer-option-number) {
+  width: 309px;
+  height: 49px;
+  min-height: 49px;
+  padding: 0;
+}
+
+.answer-option-button:hover {
+  border-color: #347aec;
+  background: #f3f4f6;
+}
+
+.answer-option-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #262626;
+  text-align: center;
+  font-weight: 400;
+}
+
+.answer-option-button.answer-option-number {
+  background: white;
+  width: 56px;
+  height: 49px;
+  min-height: 49px;
+  padding: 0;
+}
+
+/* Сдвигаем правую колонку (варианты 4, 5, 6) влево на 173px */
+.answer-options-grid > .answer-option-button:nth-child(4n-1),
+.answer-options-grid > .answer-option-button:nth-child(4n) {
+  margin-left: -173px;
+}
+
+/* Сдвигаем квадратики с цифрами 4, 5, 6 вправо от текста на 78px */
+.answer-options-grid > .answer-option-button.answer-option-number:nth-child(4n) {
+  margin-left: calc(-173px + 78px);
+}
+
+.answer-option-number-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #347aec;
+}
+
+.questions-section {
+  margin-bottom: 2rem;
+}
+
+.result-button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(2rem - 50px);
+  padding-top: 2rem;
+  margin-left: -450px;
+}
+
+.result-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Unbounded', sans-serif;
+  color: #1f2937;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.result-button:hover {
+  color: #347aec;
+}
+
+.result-button-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: inherit;
+}
+
+.result-button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  line-height: 1;
+}
+
+.result-button-icon img {
+  width: 20px;
+  height: auto;
+}
+
+.questions-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.questions-main {
+  flex: 1;
+}
+
+.questions-header {
+  margin-bottom: 1rem;
+}
+
+.questions-numbers {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 1rem 0;
+  margin-left: 250px;
+}
+
+.question-number {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.question-item {
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  width: 780px;
+  height: 77px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #1f2937;
+  margin: 0;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.question-answers {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.radio-input {
+  display: none;
+}
+
+.radio-custom {
+  width: 19px;
+  height: 19px;
+  border: 2px solid #d1d5db;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.radio-input:checked + .radio-custom {
+  border-color: #347aec;
+  background: #347aec;
+}
+
+.radio-input:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.test-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: calc(2rem - 80px);
+  padding-top: 2rem;
+  margin-left: 270px;
+}
+
+/* Общий контейнер для прогресс-индикатора */
+.progress-block {
+  flex-shrink: 0;
+  position: relative;
+  margin-top: 270px;
+  /* Для перемещения влево/вправо используйте margin-left или transform: translateX() */
+  margin-left: -100px;
+  /* Альтернатива: transform: translateX(-100px); */
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.progress-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #262626;
+  margin-bottom: 0.25rem;
+}
+
+.progress-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: #347aec;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  margin-left: 15px;
+}
+
+.progress-text {
+  font-size: 16px;
+  color: #1f2937;
+  margin-left: 15px;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: 160px;
+}
+
+.nav-button {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: #6b7280;
+}
+
+.nav-button:hover:not(:disabled) {
+  color: #347aec;
+}
+
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nav-button-submit {
+  background: #347aec;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-button-submit:hover {
+  background: #6764e7;
+}
+
+/* Results Section */
+.emotional-intelligence-results {
+  max-width: 100%;
+  margin: calc(2rem - 100px) 0 0 0;
+  background: transparent;
+  border-radius: 0;
+  padding: 2rem;
+  box-shadow: none;
+  animation: slideDown 0.5s ease-out;
+  padding-top: 3rem;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 100px;
+}
+
+/* Скрываем все кружки в секции результатов */
+.emotional-intelligence-results [class*='circle'],
+.emotional-intelligence-results [class*='radio'],
+.emotional-intelligence-results [style*='border-radius: 50%'],
+.emotional-intelligence-results::before,
+.emotional-intelligence-results::after {
+  display: none !important;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Убедимся, что результаты всегда видны когда showResults === true */
+.emotional-intelligence-results[style*='display: none'] {
+  display: block !important;
+}
+
+.results-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.results-subtitle {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #262626;
+  margin-bottom: 2rem;
+}
+
+.overall-score {
+  margin-bottom: 2rem;
+}
+
+.score-bar-container {
+  position: relative;
+}
+
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  width: 498px;
+  align-self: center;
+}
+
+.score-min,
+.score-max-label {
+  color: #6b7280;
+}
+
+.score-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  align-self: center;
+}
+
+.score-bar {
+  width: 498px;
+  height: 16px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.score-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #347aec 0%, #6764e7 100%);
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
+.score-current {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.score-white-strip {
+  width: 546px;
+  height: 38px;
+  background: white;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.results-content-section {
+  background: transparent;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  box-shadow: none;
+}
+
+.results-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  margin-left: -35px;
+}
+
+.results-description strong {
+  color: #262626;
+  font-weight: 600;
+}
+
+.score-interpretation {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+.interpretation-robot {
+  flex-shrink: 0;
+  margin-left: -35px;
+}
+
+.robot-image-small {
+  width: 248px;
+  height: 284px;
+  object-fit: contain;
+}
+
+.interpretation-content {
+  flex: 1;
+}
+
+.interpretation-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  margin-top: 30px;
+}
+
+.interpretation-highlight {
+  color: #347aec;
+}
+
+.interpretation-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-top: 30px;
+}
+
+.components-breakdown {
+  margin-bottom: 2rem;
+}
+
+.components-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #262626;
+  margin-bottom: 1.5rem;
+}
+
+.component-item {
+  margin-bottom: 2rem;
+}
+
+.component-name {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.component-bar-container {
+  margin-bottom: 0.5rem;
+}
+
+.component-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  width: 498px;
+}
+
+.component-min,
+.component-max-label {
+  color: #6b7280;
+}
+
+.component-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.component-bar {
+  width: 498px;
+  height: 16px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.component-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #347aec 0%, #6764e7 100%);
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
+.component-current {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  color: #1f2937;
+  line-height: 1;
+}
+
+.component-link {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  color: #262626;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.component-link:hover {
+  text-decoration: underline;
+}
+
+.save-result-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.save-result-button {
+  width: 255px;
+  height: 37px;
+  padding: 0;
+  background: #347aec;
+  color: white;
+  border: none;
+  border-radius: 18.5px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.save-result-button:hover {
+  background: #6764e7;
+}
+
+.save-result-message {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.save-result-banner {
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  background: #8e7cf4;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 auto 1rem;
+}
+
+.save-result-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.component-interpretation {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.component-scale-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: #262626;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.component-level-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.component-level-highlight {
+  color: #347aec;
+  font-weight: 700;
+}
+
+.component-level-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1f2937;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Адаптация для экранов 480px и меньше */
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  .emotional-intelligence-page {
+    min-height: 100vh !important;
+    background-color: #f3f4f6 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 80px !important;
+  }
+
+  .emotional-intelligence-main {
+    padding: 1.25rem !important; /* Немного уменьшенный общий padding */
+    padding-top: calc(
+      1.25rem + 80px
+    ) !important; /* Отступ от хедера 80px (было 100px, подняли еще на 20px) */
+    padding-bottom: 4rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 0 !important; /* Убираем отрицательный margin-top */
+    margin-left: 0 !important; /* Сдвигаем всё содержимое вправо на 10px (было -10px, теперь 0px) */
+  }
+
+  .emotional-intelligence-content,
+  .emotional-intelligence-section,
+  .emotional-intelligence-question-card,
+  .emotional-intelligence-summary,
+  .emotional-intelligence-results,
+  .emotional-intelligence-result-card {
+    margin-top: -20px !important;
+  }
+
+  .emotional-intelligence-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .emotional-intelligence-title {
+    font-size: 22px !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .emotional-intelligence-description {
+    font-size: 16px !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .emotional-intelligence-instructions {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .instructions-bubble {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100px !important;
+  }
+
+  .instructions-content {
+    padding: 1rem 1.5rem !important;
+    margin-top: -10px !important;
+  }
+
+  .instructions-text {
+    font-size: 16px !important;
+    margin: 0.25rem 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  .instructions-robot {
+    display: none !important;
+  }
+
+  .robot-image {
+    width: 150px !important;
+    height: auto !important;
+    max-height: 200px !important;
+  }
+
+  .answer-options-title {
+    font-size: 30px !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+  }
+
+  .answer-options-grid {
+    grid-template-columns: minmax(0, 1fr) 56px !important;
+    column-gap: 0.75rem !important;
+    row-gap: 0.75rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .answer-option-button {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 54px !important;
+    padding: 0.9rem 1rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 22px rgba(31, 41, 55, 0.08) !important;
+  }
+
+  .answer-option-button:not(.answer-option-number) {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 54px !important;
+    padding: 0.9rem 1rem !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+  }
+
+  .answer-option-button.answer-option-number {
+    width: 56px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    justify-content: center !important;
+  }
+
+  .answer-options-grid > .answer-option-button:nth-child(4n-1),
+  .answer-options-grid > .answer-option-button:nth-child(4n) {
+    margin-left: 0 !important;
+  }
+
+  .answer-options-grid > .answer-option-button.answer-option-number:nth-child(4n) {
+    margin-left: 0 !important;
+  }
+
+  .answer-option-label {
+    font-size: 16px !important;
+    text-align: left !important;
+  }
+
+  .answer-option-number-text {
+    font-size: 18px !important;
+  }
+
+  /* === Секция Вопросов === */
+  .mbti-question-section {
+    margin: 1.25rem 0 0 !important; /* Обновляем margin для мобильных */
+  }
+
+  /* Обнуляем все сложное позиционирование, которое было на десктопе */
+  .mbti-question-block {
+    /* background, padding, margin, gap - OK */
+    padding: 1.25rem 0 !important; /* Убираем padding по бокам, если он мешает, или оставляем 1.25rem */
+    margin-top: 0 !important; /* Убираем все отрицательные отступы */
+    margin-bottom: 1.5rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .mbti-question-block:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  /* Стили для блока "Пройдено 1/6 блоків" */
+  .mbti-question-block--with-progress {
+    flex-direction: column !important; /* Вертикальное расположение */
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+    top: 0 !important; /* Обнуляем top */
+  }
+
+  .mbti-question-block--with-progress .mbti-question-content {
+    /* Меняем order на 1, чтобы контент вопросов был первым */
+    order: 1 !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .mbti-progress-summary {
+    margin: 0 auto !important; /* Центрируем и обнуляем десктопные отступы */
+    padding: 1.5rem 0 !important;
+    min-width: auto !important;
+    border-bottom: none !important;
+    /* Меняем order на 2, чтобы блок прогресса был вторым, то есть после вопросов */
+    order: 2 !important;
+  }
+
+  .mbti-progress-label,
+  .mbti-progress-subtext {
+    text-align: center !important;
+  }
+
+  /* Заголовок вопроса */
+  .mbti-question-header {
+    top: 0 !important; /* Обнуляем top */
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    margin-left: 0 !important;
+  }
+
+  .mbti-question-number {
+    font-size: 20px !important;
+    top: 0 !important;
+  }
+
+  .mbti-question-text {
+    font-size: 16px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important; /* Medium */
+    color: #262626 !important;
+    margin-bottom: 0.75rem !important;
+    margin-left: 0 !important;
+  }
+
+  /* Вопросы в списке */
+  .questions-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important; /* Отступ между вопросами */
+  }
+
+  .question-item {
+    padding-bottom: 1.5rem !important;
+    border-bottom: none !important;
+  }
+
+  .question-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Стили для mbti-question (используется в новой структуре) */
+  .mbti-question {
+    padding-bottom: 1.5rem !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+  }
+
+  .mbti-question:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Контейнер для всех опций ответов (кружочков) */
+  .question-answers,
+  .mbti-answer-options {
+    /* Используем оба класса для безопасности */
+    display: flex !important;
+    flex-direction: row !important; /* Располагаем элементы горизонтально */
+    justify-content: space-between !important; /* Равномерно распределяем кружки по ширине */
+    align-items: center !important;
+    gap: 0 !important; /* Убираем отступы между элементами, так как используем space-between */
+    padding: 0 1.25rem !important; /* Добавляем отступы по бокам */
+    width: 100% !important; /* Занимает всю доступную ширину */
+    height: 49px !important; /* Высота белой полоски 49px */
+    box-sizing: border-box !important;
+    background: #ffffff !important; /* Белый фон как на скриншоте */
+    border-radius: 5px !important; /* Скругленные углы 5px */
+    border: 1px solid #e1e7f0 !important; /* Легкая граница */
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08) !important; /* Тень для карточки */
+  }
+
+  /* Внутренний контейнер для каждого кружочка */
+  .radio-label {
+    flex: 1 !important; /* Позволяет каждому кружочку занимать равное пространство */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* Центрируем кружок */
+    padding: 0 !important;
+    min-width: 0 !important;
+    height: 100% !important;
+    border: none !important;
+    background: none !important;
+    cursor: pointer !important;
+  }
+
+  .radio-custom {
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 50% !important;
+    border: 2px solid #d6dce7 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .radio-input:checked + .radio-custom {
+    border-color: #3b82f6 !important;
+    background-color: #eff6ff !important;
+  }
+
+  .radio-input:checked + .radio-custom::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background-color: #3b82f6 !important;
+  }
+
+  /* Скрываем нативный input */
+  .radio-input {
+    display: none !important;
+  }
+
+  /* Стили для mbti-question-content */
+  .mbti-question-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+  }
+
+  /* === Навигация === */
+  .mbti-navigation {
+    display: flex !important;
+    margin: 1.5rem 0 0 !important; /* Убираем отрицательные отступы и центруем */
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    padding: 0 1.25rem !important; /* Добавляем отступы, чтобы не прилипало к краям */
+  }
+
+  .mbti-nav-button {
+    font-size: 14px !important; /* Меньший шрифт для мобильных */
+    background: transparent !important;
+    border: none !important;
+    color: #6b7280 !important;
+    cursor: pointer !important;
+    padding: 0.5rem 0 !important;
+    transition: color 0.2s !important;
+  }
+
+  .mbti-nav-button:hover:not(:disabled) {
+    color: #347aec !important;
+  }
+
+  .mbti-nav-button:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+
+  /* Показываем блок опций "1-6" в мобильной версии */
+  .answer-options-grid {
+    display: grid !important;
+  }
+
+  .questions-section {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .questions-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .questions-header {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .questions-numbers {
+    display: flex !important;
+    gap: 40px !important;
+    margin-left: 0 !important;
+    padding: 0.5rem 0 !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  .question-number {
+    font-size: 16px !important;
+    color: #5d5d5d !important;
+    letter-spacing: normal !important;
+    margin-right: 0 !important;
+  }
+
+  .questions-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important; /* Красивые одинаковые отступы между всеми вопросами */
+  }
+
+  .question-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important; /* Убираем все margin'ы, используем gap из .questions-list */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Обертка для текста вопроса - можно управлять отступами отдельно */
+  .question-text-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    order: 1 !important;
+    /* 👇 ЗДЕСЬ можно управлять отступами текста сверху/снизу */
+    margin-top: 0 !important; /* Отступ текста сверху */
+    margin-bottom: 1.5rem !important; /* Отступ текста снизу (между текстом и полоской) */
+  }
+
+  .question-text {
+    font-size: 16px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+    width: 100% !important;
+    color: #262626 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Обертка для белой полоски с кружочками - можно управлять отступами отдельно */
+  .question-answers-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    order: 2 !important;
+    /* 👇 ЗДЕСЬ можно управлять отступами белой полоски сверху/снизу */
+    margin-top: 0 !important; /* Отступ полоски сверху (между текстом и полоской) */
+    margin-bottom: 0 !important; /* Отступ полоски снизу */
+  }
+
+  .question-answers {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    background: #ffffff !important;
+    border-radius: 5px !important;
+    padding: 0 1.25rem !important;
+    height: 49px !important;
+    border: 1px solid #e1e7f0 !important;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08) !important;
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    order: 2 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 1 !important;
+    flex-shrink: 0 !important; /* Предотвращаем сжатие полоски */
+  }
+
+  .question-item + .question-item {
+    margin-top: 0 !important; /* Убираем margin-top, используем gap из .questions-list для одинаковых отступов */
+  }
+
+  .radio-custom {
+    width: 24px !important;
+    height: 24px !important;
+    border: 2px solid #d6dce7 !important;
+    background: #ffffff !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  .radio-custom::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+  }
+
+  .radio-input:checked + .radio-custom {
+    border-color: transparent !important;
+    box-shadow: 0 8px 18px rgba(58, 123, 255, 0.35) !important;
+    background: linear-gradient(135deg, #4c98ff 0%, #7b5dff 100%) !important;
+  }
+
+  .radio-input:checked + .radio-custom::after {
+    background: #ffffff !important;
+  }
+
+  .progress-block {
+    width: 100% !important;
+    margin-top: calc(
+      1.75rem + 50px
+    ) !important; /* Опускаем счетчик вниз на 50px (было 20px, добавили еще 30px) */
+    margin-left: 0 !important;
+    order: 1 !important;
+  }
+
+  .progress-info {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .progress-label {
+    font-size: 15px !important;
+    color: #111827 !important;
+    font-weight: 600 !important;
+  }
+
+  .progress-number {
+    font-size: 44px !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #7c65ff 100%) !important;
+    background-clip: text !important; /* Стандартное свойство для совместимости */
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  .progress-text {
+    font-size: 15px !important;
+    color: #6b7280 !important;
+    margin: 0 !important;
+  }
+
+  .result-button-section {
+    order: 3 !important;
+    margin: 1.5rem 0 0 !important;
+    padding-top: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .test-navigation {
+    margin: 1.75rem 0 0 !important;
+    padding-top: 0 !important;
+    justify-content: center !important;
+  }
+
+  .navigation-buttons {
+    flex-direction: row !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    gap: 0.75rem !important;
+    margin-left: 0 !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .nav-button {
+    width: auto !important;
+    font-size: 13px !important;
+    padding: 0.5rem 0 !important;
+    background: none !important;
+    color: #9ca3af !important;
+    font-weight: 600 !important;
+  }
+
+  .result-button {
+    font-size: 16px !important;
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+  }
+
+  .result-button-text {
+    font-size: 16px !important;
+  }
+
+  .result-button-icon img {
+    width: 18px !important;
+  }
+
+  /* Результаты */
+  .emotional-intelligence-results {
+    margin-top: 1rem !important;
+    padding: 1rem !important;
+    padding-top: 2rem !important;
+  }
+
+  .results-title {
+    font-size: 24px !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .results-subtitle {
+    font-size: 18px !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .score-labels {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+
+  .score-bar-wrapper {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .score-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .score-current {
+    font-size: 20px !important;
+    align-self: flex-start !important;
+  }
+
+  .results-content-section {
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .results-description {
+    font-size: 14px !important;
+    margin-bottom: 1.5rem !important;
+    margin-left: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .score-interpretation {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+
+  .interpretation-robot {
+    margin-left: 0 !important;
+    align-self: center !important;
+  }
+
+  .robot-image-small {
+    width: 150px !important;
+    height: auto !important;
+    max-height: 180px !important;
+  }
+
+  .interpretation-content {
+    width: 100% !important;
+  }
+
+  .interpretation-title {
+    font-size: 18px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .interpretation-text {
+    font-size: 14px !important;
+    margin-top: 0.75rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .component-item {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .component-name {
+    font-size: 18px !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .component-labels {
+    width: 100% !important;
+    font-size: 14px !important;
+  }
+
+  .component-bar-wrapper {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .component-bar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .component-current {
+    font-size: 20px !important;
+    align-self: flex-start !important;
+  }
+
+  .component-link {
+    font-size: 12px !important;
+  }
+
+  .component-interpretation {
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+  }
+
+  .component-scale-description {
+    font-size: 14px !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .component-level-title {
+    font-size: 18px !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .component-level-text {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+  }
+
+  .save-result-button-wrapper {
+    margin: 1.5rem 0 !important;
+  }
+
+  .save-result-button {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: 44px !important;
+    font-size: 14px !important;
+  }
+
+  .save-result-message {
+    margin-top: 1rem !important;
+  }
+
+  .save-result-text {
+    font-size: 13px !important;
+  }
+}

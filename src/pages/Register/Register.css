@@ -1,0 +1,96 @@
+.register-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: #f6f7fb;
+  padding: 24px;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1px solid #ebedf3;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.input {
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d9dbe8;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.15s border-color ease;
+}
+.input:focus {
+  border-color: #8b5cf6;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 12px;
+}
+
+.button {
+  height: 44px;
+  border: none;
+  border-radius: 10px;
+  background: #8b5cf6;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s opacity ease;
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Адаптация для экранов 480px */
+@media screen and (max-width: 480px) {
+  /* Центрируем контент на мобильных экранах */
+  .min-h-screen > div.max-w-6xl {
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .min-h-screen > div.max-w-6xl > div.flex-1 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Центрируем section внутри */
+  .min-h-screen > div.max-w-6xl > div.flex-1 > section {
+    width: 100% !important;
+    max-width: 100% !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+
