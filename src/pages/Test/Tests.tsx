@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Sidebar } from '../../layout';
 import './Tests.css';
+import { getAssetUrl } from '../../utils/assetPath';
 
 type TestCard = {
   id: string;
@@ -18,7 +19,7 @@ const testCards: TestCard[] = [
     description: 'В основі методики лежить PAEI-концепція, згід...',
     icon: (
       <img 
-        src="/_assets/images/tests/paei_banner.png" 
+        src={getAssetUrl('_assets/images/tests/paei_banner.png')} 
         alt="Тест Адізеса" 
         className="w-full h-full object-cover"
       />
@@ -31,7 +32,7 @@ const testCards: TestCard[] = [
     description: 'Енеаграма - це психологічна модель, яка розкриває дев\'ять типів особистості та їх взаємозв\'язки.',
     icon: (
       <img 
-        src="/_assets/images/tests/enneagram_banner.png" 
+        src={getAssetUrl('_assets/images/tests/enneagram_banner.png')} 
         alt="Енеаграма" 
         className="w-full h-full object-cover"
       />
@@ -44,7 +45,7 @@ const testCards: TestCard[] = [
     description: 'Тест МВІ розроблений для оцінки рівня вигорання. Він допомагає визначити емоційне виснаження та стрес.',
     icon: (
       <img 
-        src="/_assets/images/tests/MBI_banner.svg" 
+        src={getAssetUrl('_assets/images/tests/MBI_banner.svg')} 
         alt="Тест МВІ" 
         className="w-full h-full object-cover"
       />
@@ -57,7 +58,7 @@ const testCards: TestCard[] = [
     description: 'Тест дозволяє виявити, наскільки ви відкриті до нових ідей та готові до інновацій.',
     icon: (
       <img 
-        src="/_assets/images/tests/ipi_banner.png" 
+        src={getAssetUrl('_assets/images/tests/ipi_banner.png')} 
         alt="Інноваційний потенціал" 
         className="w-full h-full object-cover"
       />
@@ -70,7 +71,7 @@ const testCards: TestCard[] = [
     description: 'Тест на емоційний інтелект демонструє, як ви розумієте та керуєте емоціями.',
     icon: (
       <img 
-        src="/_assets/images/tests/EmotionalIntelligence_banner.svg" 
+        src={getAssetUrl('_assets/images/tests/EmotionalIntelligence_banner.svg')} 
         alt="Емоційний інтелект" 
         className="w-full h-full object-cover"
       />
@@ -83,7 +84,7 @@ const testCards: TestCard[] = [
     description: 'МВТІ широко використовується для самопізнання та розуміння своїх переваг у роботі.',
     icon: (
       <img 
-        src="/_assets/images/tests/MBTI_banner.svg" 
+        src={getAssetUrl('_assets/images/tests/MBTI_banner.svg')} 
         alt="Тест МВТІ" 
         className="w-full h-full object-cover"
       />
@@ -96,7 +97,7 @@ const testCards: TestCard[] = [
     description: 'Тест на духовний інтелект допоможе зрозуміти, як ви сприймаєте духовні аспекти життя.',
     icon: (
       <img 
-        src="/_assets/images/tests/SpiritualIntelligence_banner.svg" 
+        src={getAssetUrl('_assets/images/tests/SpiritualIntelligence_banner.svg')} 
         alt="Духовний інтелект" 
         className="w-full h-full object-cover"
       />
@@ -109,7 +110,7 @@ const testCards: TestCard[] = [
     description: '',
     icon: (
       <img 
-        src="/_assets/images/tests/newTest_banner.svg" 
+        src={getAssetUrl('_assets/images/tests/newTest_banner.svg')} 
         alt="Новий тест" 
         className="w-full h-full object-cover"
       />

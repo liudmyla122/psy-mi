@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form } from './Form';
 import './Authorization.css';
+import { getAssetUrl } from '../../utils/assetPath';
+
+const robotImg = getAssetUrl('_assets/images/smileRobot.png');
+const registerBorderImg = getAssetUrl('_assets/images/borders/register_border.png');
 
 type Lang = {
   locale: string;
@@ -21,11 +25,11 @@ export function Authorization({ lang }: { lang: Lang }) {
 
   return (
     <section className="flex flex-col md:flex-row items-center md:items-start md:gap-[50px]">
-      <img src="/_assets/images/smileRobot.png" alt="robot" width={190} height={255} loading="lazy" className="flex-shrink-0" />
+      <img src={robotImg} alt="robot" width={190} height={255} loading="lazy" className="flex-shrink-0" />
       <div className="flex flex-col items-center max-w-[500px] pt-0 pb-[30px] text-center md:text-left relative">
         <div className="relative w-full max-w-[414px] mb-[-25px] hidden md:block">
           <img
-            src="/_assets/images/borders/register_border.png"
+            src={registerBorderImg}
             alt="border"
             width={414}
             height={240}

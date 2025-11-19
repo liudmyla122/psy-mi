@@ -3,6 +3,11 @@ import type { ReactNode } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './Sidebar.css';
+import { getAssetUrl } from '../utils/assetPath';
+
+const psyLogoUrl = getAssetUrl('_assets/images/icons/psyMI_logo.png');
+const flagUaUrl = getAssetUrl('_assets/images/lang/UA.png');
+const flagEnUrl = getAssetUrl('_assets/images/lang/ENG.png');
 
 type NavItem = {
   label: string;
@@ -249,7 +254,7 @@ export function Sidebar() {
         className={`flex items-center justify-center self-center md:mt-[40px] ${isScrolled && isMobile ? 'logo-hidden' : ''}`}
       >
         <img
-          src="/_assets/images/icons/psyMI_logo.png"
+          src={psyLogoUrl}
           alt="PSY MI"
           width={186.33}
           height={59.71}
@@ -386,7 +391,7 @@ export function Sidebar() {
               }`}
             >
               <img
-                src="/_assets/images/lang/UA.png"
+                src={flagUaUrl}
                 alt="UA"
                 width={32}
                 height={32}
@@ -403,7 +408,7 @@ export function Sidebar() {
               }`}
             >
               <img
-                src="/_assets/images/lang/ENG.png"
+                src={flagEnUrl}
                 alt="EN"
                 width={32}
                 height={32}

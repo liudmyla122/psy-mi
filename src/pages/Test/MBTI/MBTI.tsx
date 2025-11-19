@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { Sidebar } from '../../../layout';
 import './MBTI.css';
+import { getAssetUrl } from '../../../utils/assetPath';
+
+const robotImageUrl = getAssetUrl('_assets/images/robot_img_2.png');
+const mbtiResultImageUrl = getAssetUrl('_assets/images/mbti/1.svg');
+const mbtiBubbleBackground = getAssetUrl('_assets/images/borders/mbi_border.png');
 
 export function MBTIPage() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
@@ -10,6 +15,7 @@ export function MBTIPage() {
   const [selectedAnswerFifth, setSelectedAnswerFifth] = useState<number | null>(null);
   const [showResults, setShowResults] = useState(false);
   const [isResultSaved, setIsResultSaved] = useState(false);
+  const speechBubbleStyle = { backgroundImage: `url(${mbtiBubbleBackground})` };
 
   return (
     <div className="mbti-page">
@@ -30,11 +36,11 @@ export function MBTIPage() {
           <section className="mbti-question-section">
             <div className="mbti-robot-bubble-container">
               <div className="mbti-bubble-wrapper">
-                <div className="mbti-speech-bubble">
+                <div className="mbti-speech-bubble" style={speechBubbleStyle}>
                   <p>Уважно прочитайте питання і не роздумуючи оберіть варіант відповіді</p>
                 </div>
                 <div className="mbti-robot-image">
-                  <img src="/_assets/images/robot_img_2.png" alt="Robot" />
+                  <img src={robotImageUrl} alt="Robot" />
                 </div>
               </div>
             </div>
@@ -246,7 +252,7 @@ export function MBTIPage() {
               <h2 className="mbti-results-title">Результат MBTI</h2>
               <div className="mbti-results-content">
                 <div className="mbti-results-image">
-                  <img src="/_assets/images/mbti/1.svg" alt="Менеджер" />
+                  <img src={mbtiResultImageUrl} alt="Менеджер" />
                 </div>
                 <div className="mbti-results-info">
                   <p className="mbti-result-role">Менеджер</p>

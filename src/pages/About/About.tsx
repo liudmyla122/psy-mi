@@ -1,6 +1,25 @@
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../../layout';
 import './About.css';
+import { getAssetUrl } from '../../utils/assetPath';
+
+const aboutAssets = {
+  robot: getAssetUrl('_assets/images/smileRobot.png'),
+  logos: {
+    mage: getAssetUrl('_assets/images/home/logos/mage.svg'),
+    kitrum: getAssetUrl('_assets/images/home/logos/kitrum.svg'),
+    svet: getAssetUrl('_assets/images/home/logos/svet.svg'),
+    monolith: getAssetUrl('_assets/images/home/logos/monolith.svg'),
+    earPlugs: getAssetUrl('_assets/images/home/logos/ear_plugs.svg'),
+  },
+  slide: getAssetUrl('_assets/images/home/slide.png'),
+  clients: {
+    client1: getAssetUrl('_assets/images/home/clients/client_1.svg'),
+    client2: getAssetUrl('_assets/images/home/clients/client_2.svg'),
+    client3: getAssetUrl('_assets/images/home/clients/client_3.svg'),
+    client4: getAssetUrl('_assets/images/home/clients/client_4.svg'),
+  },
+};
 
 export function AboutPage() {
   const navigate = useNavigate();
@@ -39,7 +58,7 @@ export function AboutPage() {
               </div>
               <div className="about-header-right">
                 <img 
-                  src="/_assets/images/smileRobot.png" 
+                  src={aboutAssets.robot} 
                   alt="PSY MI Robot" 
                   className="about-robot-image"
                 />
@@ -53,23 +72,23 @@ export function AboutPage() {
             <div className="about-logos-container">
               <div className="about-logos-row">
                 <div className="about-logo-card">
-                  <img src="/_assets/images/home/logos/mage.svg" alt="logo" />
+                  <img src={aboutAssets.logos.mage} alt="logo" />
                 </div>
                 <div className="about-logo-card">
-                  <img src="/_assets/images/home/logos/kitrum.svg" alt="logo" />
+                  <img src={aboutAssets.logos.kitrum} alt="logo" />
                 </div>
               </div>
               <div className="about-logos-row">
                 <div className="about-logo-card">
-                  <img src="/_assets/images/home/logos/svet.svg" alt="logo" />
+                  <img src={aboutAssets.logos.svet} alt="logo" />
                 </div>
                 <div className="about-logo-card">
-                  <img src="/_assets/images/home/logos/monolith.svg" alt="logo" />
+                  <img src={aboutAssets.logos.monolith} alt="logo" />
                 </div>
               </div>
               <div className="about-logos-row">
                 <div className="about-logo-card about-logo-card-single">
-                  <img src="/_assets/images/home/logos/ear_plugs.svg" alt="logo" />
+                  <img src={aboutAssets.logos.earPlugs} alt="logo" />
                 </div>
               </div>
             </div>
@@ -84,7 +103,7 @@ export function AboutPage() {
                   <span className="about-platform-name">PSY MI</span> — a reliable tool for hiring and talent development. It identifies strengths, areas for growth, builds effective teams, and helps make informed decisions while adapting to business needs.
                 </div>
                 <img 
-                  src="/_assets/images/home/slide.png" 
+                  src={aboutAssets.slide} 
                   alt="slide" 
                   className="about-platform-image"
                 />
@@ -112,25 +131,25 @@ export function AboutPage() {
             <div className="about-clients-container">
               <div className="about-client-item">
                 <div className="about-client-icon">
-                  <img src="/_assets/images/home/clients/client_3.svg" alt="client" />
+                  <img src={aboutAssets.clients.client3} alt="client" />
                 </div>
                 <p className="about-client-label">Business Owners & Top Management</p>
               </div>
               <div className="about-client-item">
                 <div className="about-client-icon">
-                  <img src="/_assets/images/home/clients/client_1.svg" alt="client" />
+                  <img src={aboutAssets.clients.client1} alt="client" />
                 </div>
                 <p className="about-client-label">HR & Recruiting Departments</p>
               </div>
               <div className="about-client-item">
                 <div className="about-client-icon">
-                  <img src="/_assets/images/home/clients/client_2.svg" alt="client" />
+                  <img src={aboutAssets.clients.client2} alt="client" />
                 </div>
                 <p className="about-client-label">Psychologists & Business Coaches</p>
               </div>
               <div className="about-client-item">
                 <div className="about-client-icon">
-                  <img src="/_assets/images/home/clients/client_4.svg" alt="client" />
+                  <img src={aboutAssets.clients.client4} alt="client" />
                 </div>
                 <p className="about-client-label">HR & Recruiting Agencies</p>
               </div>

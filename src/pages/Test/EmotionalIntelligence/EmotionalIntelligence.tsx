@@ -1,6 +1,14 @@
 import { useState, useRef, useEffect } from 'react';
 import { Sidebar } from '../../../layout';
 import './EmotionalIntelligence.css';
+import { getAssetUrl } from '../../../utils/assetPath';
+
+const registerBorderImg = getAssetUrl('_assets/images/borders/register_border.png');
+const robotImageUrl = getAssetUrl('_assets/images/robot_img_2.png');
+const arrowIconUrl = getAssetUrl('_assets/images/icons/arrow.svg');
+const robotDefaultUrl = getAssetUrl('_assets/images/robot1.svg');
+const robot39Url = getAssetUrl('_assets/images/robot39.svg');
+const robot40Url = getAssetUrl('_assets/images/robot40.svg');
 
 export function EmotionalIntelligencePage() {
   const [currentBlock, setCurrentBlock] = useState(1);
@@ -213,7 +221,7 @@ export function EmotionalIntelligencePage() {
             <div className="emotional-intelligence-instructions">
               <div className="instructions-bubble">
                 <img 
-                  src="/_assets/images/borders/register_border.png" 
+                  src={registerBorderImg} 
                   alt="Border" 
                   className="instructions-border-image"
                 />
@@ -228,7 +236,7 @@ export function EmotionalIntelligencePage() {
               </div>
               <div className="instructions-robot">
                 <img 
-                  src="/_assets/images/robot_img_2.png" 
+                  src={robotImageUrl} 
                   alt="Robot" 
                   className="robot-image"
                 />
@@ -363,7 +371,7 @@ export function EmotionalIntelligencePage() {
               >
                 <span className="result-button-text">Дізнатися результат</span>
                 <span className="result-button-icon">
-                  <img src="/_assets/images/icons/arrow.svg" alt="" />
+                  <img src={arrowIconUrl} alt="" />
                 </span>
               </button>
             </div>
@@ -376,11 +384,11 @@ export function EmotionalIntelligencePage() {
           // Определяем какое изображение робота показывать
           const getRobotImage = (score: number) => {
             if (score >= 40 && score <= 69) {
-              return '/_assets/images/robot40.svg';
+              return robot40Url;
             } else if (score <= 39) {
-              return '/_assets/images/robot39.svg';
+              return robot39Url;
             }
-            return '/_assets/images/robot1.svg';
+            return robotDefaultUrl;
           };
           
           return (
@@ -421,7 +429,7 @@ export function EmotionalIntelligencePage() {
               {score <= 39 && score >= 32 && (
                 <div className="interpretation-robot">
                   <img 
-                    src="/_assets/images/robot39.svg" 
+                    src={robot39Url} 
                     alt="Robot" 
                     className="robot-image-small"
                   />
