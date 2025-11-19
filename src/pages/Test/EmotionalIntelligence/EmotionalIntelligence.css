@@ -1062,6 +1062,12 @@
     border-radius: 5px !important; /* Скругленные углы 5px */
     border: 1px solid #e1e7f0 !important; /* Легкая граница */
     box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08) !important; /* Тень для карточки */
+    margin: 0 !important;
+    margin-top: 0.75rem !important; /* Отступ между текстом и полоской */
+    order: 2 !important;
+    position: static !important;
+    z-index: auto !important;
+    flex-shrink: 0 !important;
   }
 
   /* Внутренний контейнер для каждого кружочка */
@@ -1191,6 +1197,8 @@
   .question-item {
     width: 100% !important;
     max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     padding: 0 !important;
     margin: 0 !important; /* Убираем все margin'ы, используем gap из .questions-list */
     display: flex !important;
@@ -1209,7 +1217,7 @@
     order: 1 !important;
     /* 👇 ЗДЕСЬ можно управлять отступами текста сверху/снизу */
     margin-top: 0 !important; /* Отступ текста сверху */
-    margin-bottom: 1.5rem !important; /* Отступ текста снизу (между текстом и полоской) */
+    margin-bottom: 1.25rem !important; /* Отступ текста снизу (между текстом и полоской) */
   }
 
   .question-text {
@@ -1222,8 +1230,8 @@
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
-    position: relative !important;
-    z-index: 2 !important;
+    position: static !important;
+    z-index: auto !important;
   }
 
   /* Обертка для белой полоски с кружочками - можно управлять отступами отдельно */
@@ -1233,32 +1241,8 @@
     padding: 0 !important;
     order: 2 !important;
     /* 👇 ЗДЕСЬ можно управлять отступами белой полоски сверху/снизу */
-    margin-top: 0 !important; /* Отступ полоски сверху (между текстом и полоской) */
+    margin-top: 0.75rem !important; /* Отступ полоски сверху (между текстом и полоской) */
     margin-bottom: 0 !important; /* Отступ полоски снизу */
-  }
-
-  .question-answers {
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 0 !important;
-    flex-wrap: nowrap !important;
-    background: #ffffff !important;
-    border-radius: 5px !important;
-    padding: 0 1.25rem !important;
-    height: 49px !important;
-    border: 1px solid #e1e7f0 !important;
-    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08) !important;
-    margin: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    order: 2 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    z-index: 1 !important;
-    flex-shrink: 0 !important; /* Предотвращаем сжатие полоски */
   }
 
   .question-item + .question-item {
