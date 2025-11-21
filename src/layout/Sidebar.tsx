@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -247,11 +247,34 @@ export function Sidebar() {
   const greeting = currentLang === 'ua' ? 'Привіт' : 'Hello';
   const profileButtonText = currentLang === 'ua' ? 'мій профіль →' : 'my profile →';
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const currentPath = location.pathname;
+    // Определяем базовый путь с учетом языка
+    let basePath = '';
+    if (currentPath.startsWith('/ua/')) {
+      basePath = '/ua/register';
+    } else if (currentPath.startsWith('/en/')) {
+      basePath = '/en/register';
+    } else {
+      basePath = '/register';
+    }
+    navigate(basePath);
+  };
+
   return (
     <aside className="w-full md:w-[248px] md:h-[654px] flex flex-col items-center md:items-start gap-6">
-      <a 
-        href="/" 
-        className={`flex items-center justify-center self-center md:mt-[40px] ${isScrolled && isMobile ? 'logo-hidden' : ''}`}
+      <div 
+        onClick={handleLogoClick}
+        className={`flex items-center justify-center self-center md:mt-[40px] cursor-pointer ${isScrolled && isMobile ? 'logo-hidden' : ''}`}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e: React.KeyboardEvent) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleLogoClick(e as unknown as React.MouseEvent);
+          }
+        }}
       >
         <img
           src={psyLogoUrl}
@@ -262,7 +285,7 @@ export function Sidebar() {
           loading="lazy"
           className="mobile-logo-image"
         />
-      </a>
+      </div>
 
       <div className="w-full md:h-full bg-white shadow-lg rounded-[15px] md:rounded-[15px] px-6 py-6 flex flex-col gap-6">
         <div className="flex items-start gap-4">

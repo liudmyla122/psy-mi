@@ -51,7 +51,7 @@
   }
 
   /* Показываем логотип на мобильных вверху экрана */
-  aside > a {
+  aside > div:first-child {
     display: flex !important;
     align-items: center !important;
     justify-content: flex-start !important;
@@ -72,7 +72,7 @@
   }
 
   /* Размер логотипа на мобильных: 186px ширина, 60px высота */
-  aside > a > img.mobile-logo-image {
+  aside > div:first-child > img.mobile-logo-image {
     width: 186px !important;
     height: 60px !important;
     object-fit: contain !important;
@@ -80,7 +80,7 @@
   }
 
   /* Скрываем логотип при прокрутке вниз на экране 480px */
-  aside > a.logo-hidden {
+  aside > div:first-child.logo-hidden {
     opacity: 0 !important;
     visibility: hidden !important;
     transform: translateY(-100%) !important;
