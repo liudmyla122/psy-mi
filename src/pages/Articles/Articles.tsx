@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sidebar } from '../../layout';
 import './Articles.css';
+import { getAssetUrl } from '../../utils/assetPath';
 
 const articles = [
   {
@@ -9,7 +10,7 @@ const articles = [
     tags: ['#HR', '#business'],
     thumbnailType: 'trends',
     url: 'https://medium.com/@mi.agency/7-key-trends-in-management-in-2024-5620da3a7111',
-    imageUrl: '/output/1_mop.png',
+    imageUrl: getAssetUrl('output/1_mop.png'),
   },
   {
     id: 2,
@@ -17,7 +18,7 @@ const articles = [
     tags: ['#HR', '#business'],
     thumbnailType: 'social',
     url: 'https://medium.com/@mi.agency/the-role-of-social-networks-in-recruiting-and-building-a-company-brand-f185797d53f7',
-    imageUrl: '/output/2.png',
+    imageUrl: getAssetUrl('output/2.png'),
   },
   {
     id: 3,
@@ -25,7 +26,7 @@ const articles = [
     tags: ['#HR', '#business'],
     thumbnailType: 'branding',
     url: 'https://medium.com/@mi.agency/development-of-an-effective-employer-branding-strategy-to-increase-the-employers-competitiveness-b77cacd0e0bb',
-    imageUrl: '/output/3.png',
+    imageUrl: getAssetUrl('output/3.png'),
   },
   {
     id: 4,
@@ -33,7 +34,7 @@ const articles = [
     tags: ['#HR', '#business'],
     thumbnailType: 'tools',
     url: 'https://medium.com/@mi.agency/hr-tools-that-promote-team-productivity-c5fb633f87f9',
-    imageUrl: '/output/4.png',
+    imageUrl: getAssetUrl('output/4.png'),
   },
 ];
 
@@ -43,6 +44,7 @@ export function ArticlesPage() {
   const [selectedSphere, setSelectedSphere] = useState<string[]>([]);
   const [selectedLanguage, setSelectedLanguage] = useState<string[]>([]);
   const [articleImages, setArticleImages] = useState<Record<number, string>>({});
+  const [loadedImages, setLoadedImages] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const fetchArticleImage = async (articleId: number, url: string) => {
@@ -54,7 +56,7 @@ export function ArticlesPage() {
           if (oembedResponse.ok) {
             const oembedData = await oembedResponse.json();
             if (oembedData.thumbnail_url) {
-              setArticleImages(prev => ({ ...prev, [articleId]: oembedData.thumbnail_url }));
+              setArticleImages((prev) => ({ ...prev, [articleId]: oembedData.thumbnail_url }));
               return;
             }
           }
@@ -67,17 +69,18 @@ export function ArticlesPage() {
         const response = await fetch(proxyUrl);
         const data = await response.json();
         const html = data.contents;
-        const ogImageMatch = html.match(/property="og:image"\s+content="([^"]+)"/) || 
-                           html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/);
+        const ogImageMatch =
+          html.match(/property="og:image"\s+content="([^"]+)"/) ||
+          html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/);
         if (ogImageMatch && ogImageMatch[1]) {
-          setArticleImages(prev => ({ ...prev, [articleId]: ogImageMatch[1] }));
+          setArticleImages((prev) => ({ ...prev, [articleId]: ogImageMatch[1] }));
         }
       } catch (error) {
         console.error('Failed to fetch article image:', error);
       }
     };
 
-    articles.forEach(article => {
+    articles.forEach((article) => {
       if (article.url && article.id === 1) {
         fetchArticleImage(article.id, article.url);
       }
@@ -89,39 +92,33 @@ export function ArticlesPage() {
   const languageOptions = ['Ukrainian', 'English'];
 
   const toggleResource = (option: string) => {
-    setSelectedResource(prev => 
-      prev.includes(option) 
-        ? prev.filter(item => item !== option)
-        : [...prev, option]
+    setSelectedResource((prev) =>
+      prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option],
     );
   };
 
   const toggleSphere = (option: string) => {
-    setSelectedSphere(prev => 
-      prev.includes(option) 
-        ? prev.filter(item => item !== option)
-        : [...prev, option]
+    setSelectedSphere((prev) =>
+      prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option],
     );
   };
 
   const toggleLanguage = (option: string) => {
-    setSelectedLanguage(prev => 
-      prev.includes(option) 
-        ? prev.filter(item => item !== option)
-        : [...prev, option]
+    setSelectedLanguage((prev) =>
+      prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option],
     );
   };
 
   const removeResource = (option: string) => {
-    setSelectedResource(prev => prev.filter(item => item !== option));
+    setSelectedResource((prev) => prev.filter((item) => item !== option));
   };
 
   const removeSphere = (option: string) => {
-    setSelectedSphere(prev => prev.filter(item => item !== option));
+    setSelectedSphere((prev) => prev.filter((item) => item !== option));
   };
 
   const removeLanguage = (option: string) => {
-    setSelectedLanguage(prev => prev.filter(item => item !== option));
+    setSelectedLanguage((prev) => prev.filter((item) => item !== option));
   };
 
   return (
@@ -131,15 +128,15 @@ export function ArticlesPage() {
         <div className="articles-content">
           {/* Filters section */}
           <div className="articles-filters">
-            <div 
+            <div
               className="filter-dropdown"
               onMouseEnter={() => setOpenDropdown('resource')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div className="filter-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none"/>
-                  <path d="M8 5L11 9H5L8 5Z" fill="#000000"/>
+                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none" />
+                  <path d="M8 5L11 9H5L8 5Z" fill="#000000" />
                 </svg>
               </div>
               <div className="filter-selected-tags">
@@ -152,10 +149,16 @@ export function ArticlesPage() {
                 )}
               </div>
               <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                <path d="M1 1L4 4L7 1" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M1 1L4 4L7 1"
+                  stroke="#000000"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               {openDropdown === 'resource' && (
-                <div 
+                <div
                   className="dropdown-menu"
                   onMouseEnter={() => setOpenDropdown('resource')}
                   onMouseLeave={() => setOpenDropdown(null)}
@@ -171,8 +174,20 @@ export function ArticlesPage() {
                     >
                       <span>{option}</span>
                       {selectedResource.includes(option) && (
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="checkmark-icon">
-                          <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="#347AEC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="checkmark-icon"
+                        >
+                          <path
+                            d="M13.3333 4L6 11.3333L2.66667 8"
+                            stroke="#347AEC"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       )}
                     </div>
@@ -192,7 +207,12 @@ export function ArticlesPage() {
                         }}
                       >
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                          <path d="M9 3L3 9M3 3L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                          <path
+                            d="M9 3L3 9M3 3L9 9"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -200,15 +220,15 @@ export function ArticlesPage() {
                 </div>
               )}
             </div>
-            <div 
+            <div
               className="filter-dropdown"
               onMouseEnter={() => setOpenDropdown('sphere')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div className="filter-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none"/>
-                  <path d="M8 5L11 9H5L8 5Z" fill="#000000"/>
+                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none" />
+                  <path d="M8 5L11 9H5L8 5Z" fill="#000000" />
                 </svg>
               </div>
               <div className="filter-selected-tags">
@@ -221,10 +241,16 @@ export function ArticlesPage() {
                 )}
               </div>
               <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                <path d="M1 1L4 4L7 1" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M1 1L4 4L7 1"
+                  stroke="#000000"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               {openDropdown === 'sphere' && (
-                <div 
+                <div
                   className="dropdown-menu"
                   onMouseEnter={() => setOpenDropdown('sphere')}
                   onMouseLeave={() => setOpenDropdown(null)}
@@ -240,8 +266,20 @@ export function ArticlesPage() {
                     >
                       <span>{option}</span>
                       {selectedSphere.includes(option) && (
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="checkmark-icon">
-                          <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="#347AEC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="checkmark-icon"
+                        >
+                          <path
+                            d="M13.3333 4L6 11.3333L2.66667 8"
+                            stroke="#347AEC"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       )}
                     </div>
@@ -261,7 +299,12 @@ export function ArticlesPage() {
                         }}
                       >
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                          <path d="M9 3L3 9M3 3L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                          <path
+                            d="M9 3L3 9M3 3L9 9"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -269,15 +312,15 @@ export function ArticlesPage() {
                 </div>
               )}
             </div>
-            <div 
+            <div
               className="filter-dropdown"
               onMouseEnter={() => setOpenDropdown('language')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <div className="filter-icon">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none"/>
-                  <path d="M8 5L11 9H5L8 5Z" fill="#000000"/>
+                  <circle cx="8" cy="8" r="7.5" stroke="#000000" strokeWidth="1" fill="none" />
+                  <path d="M8 5L11 9H5L8 5Z" fill="#000000" />
                 </svg>
               </div>
               <div className="filter-selected-tags">
@@ -290,10 +333,16 @@ export function ArticlesPage() {
                 )}
               </div>
               <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                <path d="M1 1L4 4L7 1" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M1 1L4 4L7 1"
+                  stroke="#000000"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
               {openDropdown === 'language' && (
-                <div 
+                <div
                   className="dropdown-menu"
                   onMouseEnter={() => setOpenDropdown('language')}
                   onMouseLeave={() => setOpenDropdown(null)}
@@ -309,8 +358,20 @@ export function ArticlesPage() {
                     >
                       <span>{option}</span>
                       {selectedLanguage.includes(option) && (
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="checkmark-icon">
-                          <path d="M13.3333 4L6 11.3333L2.66667 8" stroke="#347AEC" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          className="checkmark-icon"
+                        >
+                          <path
+                            d="M13.3333 4L6 11.3333L2.66667 8"
+                            stroke="#347AEC"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       )}
                     </div>
@@ -330,7 +391,12 @@ export function ArticlesPage() {
                         }}
                       >
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                          <path d="M9 3L3 9M3 3L9 9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                          <path
+                            d="M9 3L3 9M3 3L9 9"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -343,8 +409,8 @@ export function ArticlesPage() {
           {/* Articles grid */}
           <div className="articles-grid">
             {articles.map((article) => (
-              <div 
-                key={article.id} 
+              <div
+                key={article.id}
                 className="article-card"
                 onClick={() => article.url && window.open(article.url, '_blank')}
               >
@@ -356,31 +422,89 @@ export function ArticlesPage() {
                   </div>
                   {article.thumbnailType === 'trends' && (
                     <div className="thumbnail-content trends-content">
-                      {article.imageUrl || articleImages[article.id] ? (
-                        <img 
-                          src={article.imageUrl || articleImages[article.id]} 
+                      {(article.imageUrl || articleImages[article.id]) && (
+                        <img
+                          src={article.imageUrl || articleImages[article.id]}
                           alt={article.title}
                           className="trends-article-image"
+                          onLoad={() => {
+                            setLoadedImages(prev => ({ ...prev, [article.id]: true }));
+                          }}
                           onError={(e) => {
+                            console.error('Image failed to load:', article.imageUrl || articleImages[article.id]);
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            setLoadedImages(prev => ({ ...prev, [article.id]: false }));
                           }}
                         />
-                      ) : null}
-                      <div className={`trends-content-overlay ${(article.imageUrl || articleImages[article.id]) ? 'hidden' : ''}`}>
+                      )}
+                      <div
+                        className={`trends-content-overlay ${loadedImages[article.id] ? 'hidden' : ''}`}
+                      >
                         <div className="trends-background-text">management</div>
                         <div className="trends-left-section">
                           <div className="thumbnail-icon trends-icon">
                             <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
-                              <circle cx="70" cy="70" r="55" stroke="rgba(255,255,255,0.4)" strokeWidth="2.5"/>
-                              <circle cx="70" cy="70" r="40" stroke="rgba(255,255,255,0.4)" strokeWidth="2"/>
-                              <circle cx="70" cy="70" r="25" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/>
-                              <circle cx="70" cy="70" r="10" fill="rgba(255,255,255,0.7)"/>
-                              <path d="M70 20 L70 35 M70 105 L70 120 M20 70 L35 70 M105 70 L120 70" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round"/>
-                              <path d="M70 20 L70 50 M70 90 L70 120 M20 70 L50 70 M90 70 L120 70" stroke="rgba(255,255,255,0.4)" strokeWidth="2" strokeLinecap="round"/>
-                              <line x1="50" y1="50" x2="65" y2="65" stroke="rgba(139,127,217,0.9)" strokeWidth="4" strokeLinecap="round"/>
-                              <line x1="75" y1="75" x2="90" y2="90" stroke="rgba(139,127,217,0.9)" strokeWidth="4" strokeLinecap="round"/>
-                              <line x1="90" y1="50" x2="75" y2="65" stroke="rgba(139,127,217,0.9)" strokeWidth="4" strokeLinecap="round"/>
+                              <circle
+                                cx="70"
+                                cy="70"
+                                r="55"
+                                stroke="rgba(255,255,255,0.4)"
+                                strokeWidth="2.5"
+                              />
+                              <circle
+                                cx="70"
+                                cy="70"
+                                r="40"
+                                stroke="rgba(255,255,255,0.4)"
+                                strokeWidth="2"
+                              />
+                              <circle
+                                cx="70"
+                                cy="70"
+                                r="25"
+                                stroke="rgba(255,255,255,0.5)"
+                                strokeWidth="2"
+                              />
+                              <circle cx="70" cy="70" r="10" fill="rgba(255,255,255,0.7)" />
+                              <path
+                                d="M70 20 L70 35 M70 105 L70 120 M20 70 L35 70 M105 70 L120 70"
+                                stroke="rgba(255,255,255,0.6)"
+                                strokeWidth="3"
+                                strokeLinecap="round"
+                              />
+                              <path
+                                d="M70 20 L70 50 M70 90 L70 120 M20 70 L50 70 M90 70 L120 70"
+                                stroke="rgba(255,255,255,0.4)"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1="50"
+                                y1="50"
+                                x2="65"
+                                y2="65"
+                                stroke="rgba(139,127,217,0.9)"
+                                strokeWidth="4"
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1="75"
+                                y1="75"
+                                x2="90"
+                                y2="90"
+                                stroke="rgba(139,127,217,0.9)"
+                                strokeWidth="4"
+                                strokeLinecap="round"
+                              />
+                              <line
+                                x1="90"
+                                y1="50"
+                                x2="75"
+                                y2="65"
+                                stroke="rgba(139,127,217,0.9)"
+                                strokeWidth="4"
+                                strokeLinecap="round"
+                              />
                             </svg>
                           </div>
                         </div>
@@ -402,21 +526,29 @@ export function ArticlesPage() {
                   )}
                   {article.thumbnailType === 'social' && (
                     <div className="thumbnail-content social-content">
-                      {article.imageUrl || articleImages[article.id] ? (
-                        <img 
-                          src={article.imageUrl || articleImages[article.id]} 
+                      {(article.imageUrl || articleImages[article.id]) && (
+                        <img
+                          src={article.imageUrl || articleImages[article.id]}
                           alt={article.title}
                           className="social-article-image"
+                          onLoad={() => {
+                            setLoadedImages(prev => ({ ...prev, [article.id]: true }));
+                          }}
                           onError={(e) => {
+                            console.error('Image failed to load:', article.imageUrl || articleImages[article.id]);
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            setLoadedImages(prev => ({ ...prev, [article.id]: false }));
                           }}
                         />
-                      ) : null}
-                      <div className={`social-content-overlay ${(article.imageUrl || articleImages[article.id]) ? 'hidden' : ''}`}>
+                      )}
+                      <div
+                        className={`social-content-overlay ${loadedImages[article.id] ? 'hidden' : ''}`}
+                      >
                         <div className="thumbnail-text social-text">
                           <div className="text-large">THE ROLE OF SOCIAL NETWORKS</div>
-                          <div className="text-small">IN RECRUITING and BUILDING A COMPANY BRAND</div>
+                          <div className="text-small">
+                            IN RECRUITING and BUILDING A COMPANY BRAND
+                          </div>
                         </div>
                         <div className="social-icons-container">
                           <div className="social-icon-item">📱</div>
@@ -429,24 +561,32 @@ export function ArticlesPage() {
                   )}
                   {article.thumbnailType === 'branding' && (
                     <div className="thumbnail-content branding-content">
-                      {article.imageUrl || articleImages[article.id] ? (
-                        <img 
-                          src={article.imageUrl || articleImages[article.id]} 
+                      {(article.imageUrl || articleImages[article.id]) && (
+                        <img
+                          src={article.imageUrl || articleImages[article.id]}
                           alt={article.title}
                           className="branding-article-image"
+                          onLoad={() => {
+                            setLoadedImages(prev => ({ ...prev, [article.id]: true }));
+                          }}
                           onError={(e) => {
+                            console.error('Image failed to load:', article.imageUrl || articleImages[article.id]);
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            setLoadedImages(prev => ({ ...prev, [article.id]: false }));
                           }}
                         />
-                      ) : null}
-                      <div className={`branding-content-overlay ${(article.imageUrl || articleImages[article.id]) ? 'hidden' : ''}`}>
+                      )}
+                      <div
+                        className={`branding-content-overlay ${loadedImages[article.id] ? 'hidden' : ''}`}
+                      >
                         <div className="branding-icons-top">
                           <div className="branding-icon">🧠</div>
                           <div className="branding-icon">❤️</div>
                         </div>
                         <div className="thumbnail-text branding-text">
-                          <div className="text-highlight-branding">Effective <span className="highlight-strategy">strategy</span></div>
+                          <div className="text-highlight-branding">
+                            Effective <span className="highlight-strategy">strategy</span>
+                          </div>
                           <div className="text-underline">EMPLOYER BRANDING</div>
                         </div>
                       </div>
@@ -454,18 +594,24 @@ export function ArticlesPage() {
                   )}
                   {article.thumbnailType === 'tools' && (
                     <div className="thumbnail-content tools-content">
-                      {article.imageUrl || articleImages[article.id] ? (
-                        <img 
-                          src={article.imageUrl || articleImages[article.id]} 
+                      {(article.imageUrl || articleImages[article.id]) && (
+                        <img
+                          src={article.imageUrl || articleImages[article.id]}
                           alt={article.title}
                           className="tools-article-image"
+                          onLoad={() => {
+                            setLoadedImages(prev => ({ ...prev, [article.id]: true }));
+                          }}
                           onError={(e) => {
+                            console.error('Image failed to load:', article.imageUrl || articleImages[article.id]);
                             e.currentTarget.style.display = 'none';
-                            e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            setLoadedImages(prev => ({ ...prev, [article.id]: false }));
                           }}
                         />
-                      ) : null}
-                      <div className={`tools-content-overlay ${(article.imageUrl || articleImages[article.id]) ? 'hidden' : ''}`}>
+                      )}
+                      <div
+                        className={`tools-content-overlay ${loadedImages[article.id] ? 'hidden' : ''}`}
+                      >
                         <div className="tools-box">
                           <div className="tools-text">HR tools that promote team productivity</div>
                         </div>
@@ -478,7 +624,9 @@ export function ArticlesPage() {
                   <h3 className="article-title">{article.title}</h3>
                   <div className="article-tags">
                     {article.tags.map((tag, index) => (
-                      <span key={index} className="article-tag">{tag}</span>
+                      <span key={index} className="article-tag">
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -490,4 +638,3 @@ export function ArticlesPage() {
     </div>
   );
 }
-
