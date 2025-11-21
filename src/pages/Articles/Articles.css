@@ -711,14 +711,20 @@
   }
 
   .articles-main {
-    padding-top: calc(40px + 60px + 1rem) !important; /* 40px для хедера + 60px для логотипа + 1rem */
+    padding-top: calc(60px + 1rem) !important; /* 60px для логотипа + 1rem */
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     padding-bottom: 100px !important;
     margin-top: 0 !important;
+    margin-left: 0 !important;
     width: 100% !important;
     max-width: 100vw !important;
     box-sizing: border-box !important;
+  }
+
+  /* Скрываем Sidebar на мобильных */
+  .articles-page aside {
+    display: none !important;
   }
 
   .articles-content {
@@ -811,6 +817,17 @@
   .article-thumbnail {
     height: 200px !important;
     width: 100% !important;
+    min-height: 200px !important;
+  }
+
+  /* Улучшаем отображение изображений на мобильных */
+  .trends-article-image,
+  .social-article-image,
+  .branding-article-image,
+  .tools-article-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   /* Trends content */
@@ -950,6 +967,54 @@
 
   .article-tag {
     font-size: 9px !important;
+  }
+
+  /* Улучшаем отступы и размеры для лучшей читаемости */
+  .article-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .article-card:active {
+    transform: scale(0.98) !important;
+  }
+
+  /* Улучшаем контрастность текста на мобильных */
+  .article-title {
+    font-weight: 500 !important;
+  }
+
+  /* Адаптируем логотип статьи */
+  .article-logo {
+    z-index: 15 !important;
+  }
+
+  .logo-circle {
+    background: #347AEC !important;
+  }
+
+  /* Улучшаем отображение overlay контента */
+  .trends-content-overlay,
+  .social-content-overlay,
+  .branding-content-overlay,
+  .tools-content-overlay {
+    padding: 10px !important;
+  }
+
+  /* Адаптируем иконки в social content */
+  .social-icons-container {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Улучшаем отображение branding иконок */
+  .branding-icons-top {
+    gap: 8px !important;
+  }
+
+  /* Адаптируем tools box */
+  .tools-box {
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 }
 
