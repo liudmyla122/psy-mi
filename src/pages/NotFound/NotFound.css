@@ -1,0 +1,236 @@
+.not-found-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.not-found-main {
+  flex: 1;
+  padding: 2rem;
+  padding-top: calc(2rem + 50px);
+  margin-left: 0;
+  width: calc(1440px - 248px);
+  max-width: calc(1440px - 248px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.not-found-robot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  animation: robotBounce 2s ease-in-out infinite;
+}
+
+.not-found-robot-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.not-found-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.not-found-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 120px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #347aec 0%, #6764e7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1;
+  animation: numberPulse 2s ease-in-out infinite;
+}
+
+.not-found-subtitle {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #262626;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+.not-found-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #6b7280;
+  margin: 0;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.not-found-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.not-found-button {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+  min-width: 160px;
+}
+
+.not-found-button-primary {
+  background: linear-gradient(135deg, #347aec 0%, #6764e7 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(52, 122, 236, 0.3);
+}
+
+.not-found-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 122, 236, 0.4);
+}
+
+.not-found-button-primary:active {
+  transform: translateY(0);
+}
+
+.not-found-button-secondary {
+  background: white;
+  color: #347aec;
+  border: 2px solid #347aec;
+}
+
+.not-found-button-secondary:hover {
+  background: #f0f5ff;
+  transform: translateY(-2px);
+}
+
+.not-found-button-secondary:active {
+  transform: translateY(0);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes robotBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes numberPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Адаптация для мобильных устройств */
+@media screen and (max-width: 768px) {
+  .not-found-main {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    padding-top: calc(1rem + 50px);
+  }
+
+  .not-found-content {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .not-found-robot-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .not-found-title {
+    font-size: 80px;
+  }
+
+  .not-found-subtitle {
+    font-size: 24px;
+  }
+
+  .not-found-description {
+    font-size: 16px;
+  }
+
+  .not-found-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .not-found-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .not-found-title {
+    font-size: 60px;
+  }
+
+  .not-found-subtitle {
+    font-size: 20px;
+  }
+
+  .not-found-robot-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+
+
+

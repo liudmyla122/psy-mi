@@ -1,0 +1,1726 @@
+.mbti-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f5f8;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mbti-main {
+  flex: 1;
+  padding: 2rem;
+  padding-top: calc(2rem + 50px);
+  margin-left: 0;
+  width: calc(1440px - 248px);
+  max-width: calc(1440px - 248px);
+}
+
+.mbti-content {
+  background: transparent;
+  padding: 0;
+}
+
+/* Первая секция - Заголовок и описание */
+.mbti-intro-section {
+  margin-bottom: 3rem;
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 100%;
+}
+
+.mbti-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.mbti-description {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.mbti-description p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #333;
+  margin: 0;
+}
+
+.mbti-description strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #1a1a1a;
+}
+
+.mbti-dichotomies-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 25px;
+  position: relative;
+}
+
+.mbti-dichotomies {
+  width: 100%;
+}
+
+.mbti-dichotomies p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #333;
+  margin: 0;
+}
+
+.mbti-dichotomies strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #1a1a1a;
+}
+
+.mbti-dichotomies-note {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #333;
+  margin: 0;
+  margin-top: 1rem;
+  white-space: pre-line;
+  max-width: 800px;
+}
+
+.mbti-instructions-note {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #333;
+  margin: 0;
+  margin-top: calc(2rem + 10px);
+  text-align: justify;
+  text-align-last: left;
+  max-width: 800px;
+}
+
+.mbti-hide-button {
+  background: #3377EE;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.mbti-hide-button:hover {
+  background: #6764E7;
+}
+
+.mbti-hide-button:hover {
+  background: #2a66d4;
+}
+
+/* Вторая секция - Речевой пузырь с роботом и вопрос */
+.mbti-question-section {
+  margin-top: calc(3rem + 50px);
+  margin-left: 30px;
+}
+
+.mbti-robot-bubble-container {
+  margin-bottom: 2rem;
+}
+
+.mbti-bubble-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  position: relative;
+}
+
+.mbti-speech-bubble {
+  background-size: 578px 85px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 12px;
+  padding-top: calc(2rem - 60px);
+  padding-bottom: calc(2rem - 60px);
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  position: relative;
+  width: 578px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+}
+
+.mbti-speech-bubble::after {
+  display: none;
+}
+
+.mbti-speech-bubble::before {
+  display: none;
+}
+
+.mbti-speech-bubble p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* Курсор для эффекта печатания */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #347aec;
+  font-weight: 400;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.mbti-robot-image {
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-left: -80px;
+  margin-top: -120px;
+}
+
+.mbti-robot-image img {
+  width: 330px;
+  height: 390px;
+  object-fit: contain;
+  animation: robotGentleFloat 3s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Плавная красивая анимация робота - легкое покачивание вверх-вниз */
+@keyframes robotGentleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+.mbti-question-block {
+  background: none;
+  padding: 2rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: -35px;
+}
+
+.mbti-question-block:first-of-type {
+  margin-top: 20px;
+}
+
+.mbti-question-block--with-progress {
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  top: -215px;
+}
+
+.mbti-question-block--with-progress .mbti-progress-summary {
+  margin-top: 0;
+  transform: translateX(-250px);
+}
+
+.mbti-question-block--with-progress .mbti-question-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mbti-question-number {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #3b82f6;
+  position: relative;
+  top: -5px;
+}
+
+.mbti-question-content {
+  flex: 1;
+}
+
+.mbti-question-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  top: -200px;
+}
+
+.mbti-question-block--with-progress .mbti-question-header {
+  top: 0;
+}
+
+.mbti-question-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.mbti-answer-options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: calc(1.5rem + 15px);
+  position: relative;
+  top: -190px;
+}
+
+.mbti-question-block--with-progress .mbti-answer-options {
+  position: static;
+  top: 0;
+  flex-wrap: nowrap;
+  gap: calc(1.5rem + 15px);
+  width: auto;
+}
+
+.mbti-progress-summary {
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  padding: 0 0.5rem;
+  margin-top: -190px;
+  margin-left: 30px;
+}
+
+.mbti-progress-summary-mobile {
+  display: none;
+}
+
+.mbti-progress-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0;
+}
+
+.mbti-progress-count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  line-height: 1;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.mbti-progress-current {
+  font-size: 40px;
+  font-weight: 400;
+  font-family: 'Unbounded', sans-serif;
+  background: linear-gradient(90deg, #4485ed 0%, #6764e7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mbti-progress-divider {
+  font-size: 24px;
+  font-weight: 400;
+  color: #347aec;
+}
+
+.mbti-progress-total {
+  font-size: 40px;
+  font-weight: 400;
+  font-family: 'Unbounded', sans-serif;
+  background: linear-gradient(90deg, #4485ed 0%, #6764e7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mbti-progress-subtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #5d5d5d;
+  margin: 0;
+}
+
+.mbti-answer-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  width: 250px;
+  min-height: 60px;
+  height: auto;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  color: #262626;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.mbti-answer-option span {
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.mbti-answer-option:hover {
+  border-color: #3b82f6;
+  background-color: #f9fafb;
+}
+
+.mbti-answer-option input[type='radio'] {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.mbti-answer-option.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.mbti-answer-option.selected input[type='radio'] {
+  accent-color: #3b82f6;
+}
+
+.mbti-robot-tip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  color: white;
+  position: relative;
+}
+
+.mbti-robot-tip::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #3b82f6;
+}
+
+.mbti-robot-icon {
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.mbti-robot-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.mbti-tip-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.mbti-questions {
+  margin-bottom: 2rem;
+}
+
+.mbti-question {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mbti-question:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mbti-question-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+}
+
+.mbti-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mbti-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  color: #333;
+  background: white;
+}
+
+.mbti-option:hover {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.mbti-option input[type='radio'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.mbti-option input[type='radio']:checked + span {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.mbti-option:has(input[type='radio']:checked) {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.mbti-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: calc(-10.625rem - 30px);
+  padding-top: 0.5rem;
+  margin-left: -500px;
+}
+
+.mbti-navigation .mbti-nav-button:first-child {
+  transform: translateX(-100px);
+}
+
+.mbti-navigation .mbti-nav-button:last-child {
+  transform: translateX(100px);
+}
+
+.mbti-results-toggle {
+  margin: calc(-10.5rem + 200px) auto 0;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f1f1f;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  transform: translateX(-220px);
+}
+
+.mbti-results-toggle:hover {
+  color: #347aec;
+}
+
+.mbti-results-toggle-icon {
+  color: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.mbti-results-toggle-icon.open {
+  transform: rotate(180deg);
+}
+
+.mbti-nav-button {
+  background: none;
+  border: none;
+  color: #5d5d5d;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+.mbti-nav-button:hover:not(:disabled) {
+  color: #3b82f6;
+}
+
+.mbti-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.mbti-submit-section {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mbti-submit-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.mbti-submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+}
+
+.mbti-submit-button svg {
+  transform: rotate(0deg);
+}
+
+.mbti-submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Results Section */
+.mbti-results {
+  background: transparent;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-left: 0;
+}
+
+.mbti-results-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  font-style: regular;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #1f1f1f;
+  margin-bottom: 1.5rem;
+}
+
+.mbti-results-content {
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
+  border-radius: 24px;
+  padding: 2rem;
+  margin-left: -30px;
+}
+
+.mbti-results-image {
+  flex-shrink: 0;
+}
+
+.mbti-results-image img {
+  width: 262px;
+  height: 280px;
+  border-radius: 32px;
+  object-fit: cover;
+}
+
+.mbti-results-info {
+  flex: 1;
+}
+
+.mbti-result-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #347AEC 0%, #6764E7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #347AEC;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.mbti-result-type {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #262626;
+  margin-bottom: 1.25rem;
+}
+
+.mbti-result-type strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #347AEC;
+}
+
+.mbti-result-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: regular;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #262626;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+
+.mbti-result-profession {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0%;
+  color: #262626;
+  margin-bottom: 1.75rem;
+}
+
+.mbti-result-profession strong {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #262626;
+}
+
+.mbti-save-button {
+  width: 255px;
+  height: 37px;
+  background: #347aec;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+  font-family: 'Unbounded', sans-serif;
+}
+
+.mbti-save-button:hover:not(:disabled) {
+  background: #6764E7;
+}
+
+.mbti-save-button.saved {
+  background: #6764e7;
+}
+
+.mbti-save-confirmation {
+  margin-top: 0.75rem;
+  margin-left: -410px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  font-style: medium;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #262626;
+  position: relative;
+  left: -15px;
+}
+
+.mbti-save-button:hover:not(:disabled) {
+  background: #6764E7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(76, 108, 251, 0.35);
+}
+
+/* ------------------------------ */
+/* 📱 Mobile 480px адаптация */
+/* ------------------------------ */
+@media (max-width: 480px) {
+  .mbti-page {
+    flex-direction: column;
+    padding: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    background: #edf1f7;
+    margin-top: 100px;
+    overflow-x: hidden;
+  }
+
+  .mbti-page aside {
+    display: none !important;
+  }
+
+  .mbti-main {
+    padding: 1.25rem 0;
+    padding-bottom: 6rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    margin-top: -10px;
+    box-sizing: border-box;
+  }
+
+  .mbti-content {
+    padding: 0 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mbti-intro-section {
+    margin: 0;
+    margin-bottom: 1.25rem;
+  }
+
+  .mbti-title {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .mbti-description {
+    margin-top: 0;
+  }
+
+  .mbti-description p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mbti-dichotomies-wrapper {
+    margin-top: 15px;
+    gap: 0.75rem;
+  }
+
+  .mbti-dichotomies p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .mbti-dichotomies strong {
+    font-size: 14px;
+  }
+
+  .mbti-dichotomies-note {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 100%;
+    margin-top: 0.75rem;
+  }
+
+  .mbti-instructions-note {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 100%;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .mbti-hide-button {
+    font-size: 14px;
+    padding: 0.4rem 1.2rem;
+  }
+
+  .mbti-question-section {
+    margin: 1.2rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-bottom: 4rem;
+    margin-top: calc(1.2rem + 30px) !important;
+    transform: translateY(30px) !important;
+  }
+  
+  /* Поднимаем только вопрос 24 (число 24 и текст вопроса) на 70px вверх (30px + 20px + 20px) */
+  /* Используем несколько вариантов селекторов для надежности */
+  .mbti-question-block:nth-child(24),
+  .mbti-question-section > div:nth-child(24),
+  .mbti-question-section .mbti-question-block:nth-of-type(24),
+  .mbti-question-section .mbti-question-block:last-child,
+  .mbti-question-section .mbti-question-block:last-of-type {
+    transform: translateY(-70px) !important;
+    margin-top: -70px !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  
+  /* Дополнительно: поднимаем последние 2 вопроса в секции (включая 24-й) */
+  .mbti-question-section .mbti-question-block:nth-last-child(-n+2) {
+    transform: translateY(-70px) !important;
+    margin-top: -70px !important;
+  }
+  
+  /* Еще один вариант: поднимаем все вопросы начиная с 20-го */
+  .mbti-question-section .mbti-question-block:nth-child(n+20) {
+    transform: translateY(-70px) !important;
+    margin-top: -70px !important;
+  }
+  
+  /* Убеждаемся, что header вопроса 24 (число и текст) отображается над ответами */
+  .mbti-question-block:nth-child(24) .mbti-question-header {
+    position: relative !important;
+    z-index: 20 !important;
+    top: -80px !important;
+    margin-bottom: 1rem !important;
+    transform: translateY(-80px) !important;
+    margin-top: -80px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    padding: 0.5rem 0 !important;
+  }
+  
+  /* Убеждаемся, что номер и текст вопроса 24 видны - поднимаем на 80px (60px + 20px) */
+  .mbti-question-block:nth-child(24) .mbti-question-number {
+    position: relative !important;
+    z-index: 21 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(-80px) !important;
+    margin-top: -80px !important;
+  }
+  
+  .mbti-question-block:nth-child(24) .mbti-question-text {
+    position: relative !important;
+    z-index: 21 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(-80px) !important;
+    margin-top: -80px !important;
+  }
+  
+  /* Убеждаемся, что content вопроса 24 имеет правильный порядок */
+  .mbti-question-block:nth-child(24) .mbti-question-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  
+  /* Убеждаемся, что answer-options находятся под header и не перекрывают его */
+  .mbti-question-block:nth-child(24) .mbti-answer-options {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 2rem !important;
+    top: 0 !important;
+    transform: none !important;
+    clear: both !important;
+  }
+  
+  /* Дополнительно: убеждаемся, что весь блок вопроса 24 имеет правильную структуру */
+  .mbti-question-block:nth-child(24) {
+    overflow: visible !important;
+  }
+  
+  .mbti-question-block:nth-child(24) .mbti-question-content {
+    overflow: visible !important;
+  }
+
+  .mbti-bubble-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .mbti-speech-bubble {
+    width: 100%;
+    height: auto;
+    min-height: 90px;
+    padding: 0.9rem 1rem;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  .mbti-speech-bubble p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .mbti-robot-image {
+    display: none !important;
+  }
+
+  .mbti-question-block {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0.1rem;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    border-bottom: none !important;
+    box-shadow: none;
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mbti-question-block + .mbti-question-block {
+    margin-top: 0;
+  }
+
+  .mbti-question-block:first-of-type {
+    margin-top: 0;
+  }
+
+  .mbti-question {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .mbti-answer-options {
+    border-bottom: none !important;
+  }
+
+  .mbti-question-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    width: 100%;
+    border-bottom: none !important;
+  }
+
+  .mbti-question-header {
+    top: 0 !important;
+    align-items: flex-start;
+    gap: 2px;
+    margin-bottom: 1.5rem !important;
+    margin-left: 0;
+    display: flex !important;
+    position: relative !important;
+    z-index: 10 !important;
+    order: 1 !important;
+  }
+  
+  .mbti-answer-options {
+    order: 2 !important;
+    margin-top: 0 !important;
+  }
+
+  .mbti-question-number {
+    font-size: 25px;
+    top: 0;
+    position: static;
+  }
+
+  .mbti-question-text {
+    font-size: 18px;
+    margin-bottom: 0;
+    margin-left: 3px;
+    margin-top: 0;
+  }
+
+  .mbti-answer-options {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    gap: 0.35rem !important;
+    top: 0 !important;
+    position: relative !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+    order: 2 !important;
+    z-index: 1 !important;
+  }
+  
+  /* Для вопроса 24: поднимаем весь блок на 70px (30px + 20px + 20px) - используем несколько селекторов */
+  .mbti-question-block:nth-child(24),
+  .mbti-question-section > div:nth-child(24),
+  .mbti-question-section .mbti-question-block:nth-of-type(24),
+  .mbti-question-block:has(.mbti-question-number:contains("24")) {
+    transform: translateY(-70px) !important;
+    margin-top: -70px !important;
+    position: relative !important;
+  }
+  
+  /* Для вопроса 24: убеждаемся, что header виден и над ответами - поднимаем на 80px (60px + 20px) */
+  .mbti-question-block:nth-child(24) .mbti-question-header,
+  .mbti-question-section .mbti-question-block:nth-last-child(-n+2) .mbti-question-header,
+  .mbti-question-section .mbti-question-block:nth-child(n+20) .mbti-question-header {
+    position: relative !important;
+    z-index: 100 !important;
+    margin-bottom: 4rem !important;
+    margin-top: -80px !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    order: 1 !important;
+    top: -80px !important;
+    padding-bottom: 2rem !important;
+    background: transparent !important;
+    min-height: auto !important;
+    transform: translateY(-80px) !important;
+  }
+  
+  /* Для вопроса 24: убеждаемся, что номер и текст видны - поднимаем на 80px (60px + 20px) */
+  .mbti-question-block:nth-child(24) .mbti-question-number,
+  .mbti-question-block:nth-child(24) .mbti-question-text,
+  .mbti-question-section .mbti-question-block:nth-last-child(-n+2) .mbti-question-number,
+  .mbti-question-section .mbti-question-block:nth-last-child(-n+2) .mbti-question-text,
+  .mbti-question-section .mbti-question-block:nth-child(n+20) .mbti-question-number,
+  .mbti-question-section .mbti-question-block:nth-child(n+20) .mbti-question-text {
+    position: relative !important;
+    z-index: 101 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: transparent !important;
+    transform: translateY(-80px) !important;
+    margin-top: -80px !important;
+  }
+  
+  /* Для вопроса 24: answer-options должны быть под header с большим отступом */
+  .mbti-question-block:nth-child(24) .mbti-answer-options {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    order: 2 !important;
+    top: 0 !important;
+    transform: none !important;
+    clear: both !important;
+  }
+  
+  /* Для вопроса 24: content должен иметь правильный порядок и большой gap */
+  .mbti-question-block:nth-child(24) .mbti-question-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4rem !important;
+    position: relative !important;
+    min-height: auto !important;
+    padding-top: 0 !important;
+  }
+  
+  /* Для вопроса 24: поднимаем header еще на 80px (итого) */
+  .mbti-question-block:nth-child(24) .mbti-question-header {
+    transform: translateY(-80px) !important;
+    top: -80px !important;
+    margin-top: -80px !important;
+  }
+
+  .mbti-answer-option {
+    flex: 1;
+    max-width: none;
+    min-width: 0;
+    width: auto;
+    height: auto;
+    min-height: 60px;
+    font-size: 15px;
+    line-height: 1.35;
+    padding: 0.85rem 1rem;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .mbti-answer-option span {
+    flex: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .mbti-question-block--with-progress {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+    top: 0;
+    position: static;
+  }
+
+  .mbti-progress-summary {
+    margin: 0;
+    align-self: center;
+    padding: 0;
+    border-bottom: none;
+    order: 2;
+  }
+
+  .mbti-question-block--with-progress .mbti-question-content {
+    order: 1;
+    width: 100%;
+  }
+
+  .mbti-question-block--with-progress .mbti-progress-summary {
+    display: none;
+  }
+
+  .mbti-progress-current,
+  .mbti-progress-total {
+    font-size: 32px;
+  }
+
+  .mbti-progress-subtext {
+    font-size: 14px;
+  }
+
+  .mbti-progress-summary-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+    padding: 1.5rem 0;
+    margin-top: calc(-69px + 50px);
+    margin-bottom: 1rem;
+  }
+
+  .mbti-navigation {
+    margin-top: calc(-20px + 10px) !important;
+    margin-bottom: 1rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    position: relative !important;
+    top: calc(-20px + 10px);
+    box-sizing: border-box !important;
+  }
+  
+  .mbti-navigation .mbti-nav-button:first-child {
+    transform: none !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: left !important;
+  }
+  
+  .mbti-navigation .mbti-nav-button:last-child {
+    transform: none !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    text-align: right !important;
+  }
+  
+  .mbti-nav-button {
+    font-size: 11px !important;
+    padding: 0.4rem 0.3rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+  }
+
+  .mbti-results-toggle {
+    transform: none;
+    margin: calc(0.75rem + 200px - 80px - 20px) auto 0;
+    position: relative;
+    top: calc(-80px - 20px);
+  }
+
+  .mbti-results {
+    padding: 1rem;
+    margin-top: calc(1rem - 30px);
+    margin-left: 0;
+    background: transparent;
+    border-radius: 16px;
+    box-shadow: none;
+    transform: translateY(-30px);
+  }
+
+  .mbti-results-title {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .mbti-results-content {
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .mbti-results-image {
+    text-align: center;
+    width: 100%;
+  }
+
+  .mbti-results-image img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+
+  .mbti-results-info {
+    width: 100%;
+  }
+
+  .mbti-result-role {
+    font-size: 18px;
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .mbti-result-type {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .mbti-result-text {
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .mbti-result-profession {
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .mbti-save-button {
+    width: 100%;
+    max-width: 255px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+  }
+
+  .mbti-save-confirmation {
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+}
+
+/* Модальное окно подтверждения выхода */
+.mbti-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.mbti-modal-content {
+  background-color: #F2F5F8;
+  border-radius: 10px;
+  padding: 20px 24px;
+  width: 800px;
+  min-height: 332px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.mbti-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #262626;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+  z-index: 1;
+}
+
+.mbti-modal-close:hover {
+  color: #347aec;
+}
+
+.mbti-modal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.mbti-modal-robot {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  animation: robotCryingContainer 4s ease-in-out infinite;
+}
+
+.mbti-modal-robot img {
+  width: 192px;
+  height: 280px;
+  object-fit: contain;
+  animation: robotCrying 5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Анимация плача и тяжелого вздоха робота */
+@keyframes robotCrying {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  10% {
+    transform: translateY(-3px) scale(1.01) rotate(-0.5deg);
+  }
+  20% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  30% {
+    transform: translateY(10px) scale(0.98) rotate(0.5deg);
+  }
+  40% {
+    transform: translateY(15px) scale(0.96) rotate(0.8deg);
+  }
+  50% {
+    transform: translateY(18px) scale(0.95) rotate(1deg);
+  }
+  60% {
+    transform: translateY(15px) scale(0.96) rotate(0.8deg);
+  }
+  70% {
+    transform: translateY(10px) scale(0.98) rotate(0.5deg);
+  }
+  80% {
+    transform: translateY(5px) scale(0.99) rotate(0.3deg);
+  }
+  90% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+/* Анимация контейнера робота (дрожание от плача) */
+@keyframes robotCryingContainer {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-1px);
+  }
+  20% {
+    transform: translateX(1px);
+  }
+  30% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-0.5px);
+  }
+  60% {
+    transform: translateX(0.5px);
+  }
+  70% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  90% {
+    transform: translateX(0);
+  }
+}
+
+.mbti-modal-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.mbti-modal-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.mbti-modal-message {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  color: #262626;
+  text-align: justify;
+  margin: 0 0 24px 0;
+  max-width: 432px;
+}
+
+.mbti-modal-buttons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.mbti-modal-button {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 209px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mbti-modal-button-outline {
+  background-color: rgb(125, 172, 241);
+  color: white;
+  border: none;
+}
+
+.mbti-modal-button-outline:hover {
+  background-color: #6764e7;
+  color: white;
+  border: none;
+}
+
+.mbti-modal-button-primary {
+  background-color: #347aec;
+  color: white;
+  border: none;
+}
+
+.mbti-modal-button-primary:hover {
+  background-color: #6764e7;
+}
+
+@media (max-width: 768px) {
+  .mbti-modal-content {
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .mbti-modal-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mbti-modal-robot img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .mbti-modal-text-content {
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .mbti-modal-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .mbti-modal-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .mbti-modal-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mbti-modal-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Стили для страницы результата MBTI */
+  .mbti-results button[type="button"] {
+    font-size: 14px !important;
+    margin-bottom: 0.75rem;
+  }
+
+  .mbti-results p {
+    font-size: 12px !important;
+    margin-top: 0.25rem;
+  }
+
+  .mbti-modal-overlay {
+    padding: 10px;
+  }
+
+  .mbti-modal-content {
+    padding: 20px 16px;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    border-radius: 8px;
+  }
+
+  .mbti-modal-close {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .mbti-modal-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .mbti-modal-robot {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mbti-modal-robot img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .mbti-modal-text-content {
+    margin-top: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .mbti-modal-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .mbti-modal-message {
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 100%;
+    line-height: 140%;
+  }
+
+  .mbti-modal-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .mbti-modal-button {
+    width: 100%;
+    max-width: 100%;
+    height: 44px;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}

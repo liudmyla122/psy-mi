@@ -1,0 +1,1369 @@
+.enneagram-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f2f5f8;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.enneagram-main {
+  flex: 1;
+  padding: 4rem 3rem;
+  margin-top: 30px;
+}
+
+.enneagram-content {
+  max-width: 842px;
+  margin: 0 auto;
+}
+
+/* Вводная секция */
+.enneagram-intro-section {
+  margin-bottom: 3rem;
+  margin-top: 30px;
+  margin-left: -70px;
+  width: 100%;
+}
+
+.enneagram-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+}
+
+.enneagram-description {
+  margin: 0;
+}
+
+.enneagram-description p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  color: #262626;
+  margin: 0;
+  text-align: justify;
+  max-width: 752px;
+}
+
+.enneagram-description strong {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* Секция с роботом и диаграммой */
+.enneagram-main-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  margin-left: -70px;
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+}
+
+.enneagram-robot-image {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin-left: -50px;
+  animation: robotTalkingContainer 6s ease-in-out infinite;
+}
+
+.enneagram-robot-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  animation: robotTalking 5s ease-in-out infinite;
+  transform-origin: center bottom;
+  filter: drop-shadow(0 0 15px rgba(52, 122, 236, 0.2));
+  transition: transform 0.3s ease;
+}
+
+/* Анимация робота, который рассказывает - плавные движения */
+@keyframes robotTalking {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  15% {
+    transform: translateY(-6px) scale(1.015) rotate(-0.8deg);
+  }
+  30% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  45% {
+    transform: translateY(-4px) scale(1.01) rotate(0.8deg);
+  }
+  60% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-7px) scale(1.02) rotate(-1deg);
+  }
+  90% {
+    transform: translateY(-2px) scale(1.005) rotate(0.5deg);
+  }
+}
+
+/* Анимация контейнера робота (легкое покачивание) */
+@keyframes robotTalkingContainer {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1.5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(1.5px);
+  }
+}
+
+/* Курсор для эффекта печатания */
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  margin-left: 3px;
+  background-color: #347aec;
+  animation: typewriterBlink 0.8s ease-in-out infinite;
+  vertical-align: baseline;
+  height: 1.2em;
+  border-radius: 1px;
+  box-shadow: 0 0 4px rgba(52, 122, 236, 0.6);
+}
+
+@keyframes typewriterBlink {
+  0%, 45% {
+    opacity: 1;
+  }
+  46%, 100% {
+    opacity: 0.3;
+  }
+}
+
+.enneagram-speech-bubble {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  position: relative;
+  width: 400px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+  flex-shrink: 0;
+  margin-left: -60px;
+}
+
+.enneagram-speech-bubble p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  color: #262626;
+  margin: 0;
+  text-align: justify;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  white-space: normal;
+  padding: 0;
+  padding-left: 45px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.enneagram-speech-bubble p strong {
+  display: block;
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .enneagram-speech-bubble {
+    display: none;
+  }
+}
+
+.enneagram-diagram-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  margin-left: 0;
+}
+
+.enneagram-diagram {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
+
+.enneagram-mobile-text {
+  display: none;
+}
+
+/* Секция с вопросами */
+.enneagram-question-section-wrapper {
+  margin-top: calc(3rem + 20px);
+  margin-left: -70px;
+}
+
+.enneagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.enneagram-back-button {
+  background-color: #347aec;
+  color: white;
+  border: none;
+  border-radius: 29px;
+  padding: 6px 29px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  height: 30px;
+  white-space: nowrap;
+}
+
+.enneagram-back-button:hover {
+  background-color: #6764e7;
+}
+
+.enneagram-counter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 29px;
+  height: 30px;
+  width: 800px;
+  overflow: hidden;
+  background-color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.enneagram-counter span {
+  position: relative;
+  z-index: 2;
+  color: #262626;
+  padding: 0 15px;
+  white-space: nowrap;
+}
+
+.enneagram-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(52, 122, 236, 0.4);
+  transition: width 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.enneagram-question-section {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 25px 40px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enneagram-question-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+  text-align: center;
+  color: #262626;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .enneagram-question-text {
+    font-size: 22px;
+  }
+}
+
+.enneagram-get-result-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 26px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.enneagram-get-result-button span {
+  color: #347AEC;
+  text-align: center;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-get-result-button span {
+    font-size: 22px;
+  }
+}
+
+.enneagram-arrow-icon {
+  width: 18px;
+  height: 10px;
+  margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-arrow-icon {
+    width: 22px;
+    height: 11px;
+    margin-top: 15px;
+  }
+}
+
+.enneagram-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-buttons {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.enneagram-answer-button-middle {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .enneagram-answer-button-middle {
+    order: 0;
+  }
+}
+
+.enneagram-answer-button {
+  background-color: #347aec;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  width: 100%;
+  height: 40px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-answer-button {
+    flex: 1;
+    height: 50px;
+  }
+}
+
+.enneagram-answer-button:hover:not(:disabled) {
+  background-color: #6764e7;
+}
+
+.enneagram-answer-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.enneagram-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-navigation {
+    margin-bottom: 0;
+  }
+}
+
+.enneagram-prev-button {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 6px;
+  border-radius: 8px;
+  width: 140px;
+  height: 17px;
+  cursor: pointer;
+  transition: font-weight 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.enneagram-prev-arrow {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.enneagram-prev-button:hover {
+  font-weight: bold;
+}
+
+.enneagram-result {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  overflow: visible;
+  transition: max-height 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .enneagram-result {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.enneagram-result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 980px;
+  background: transparent;
+  padding: 25px 40px;
+  border-radius: 10px;
+  margin-left: -150px;
+}
+
+@media (min-width: 768px) {
+  .enneagram-result-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.enneagram-result-image {
+  margin-bottom: 26px;
+  margin-top: -45px;
+  margin-left: 10px;
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .enneagram-result-image {
+    margin-bottom: 0;
+    margin-right: 30px;
+    flex-shrink: 0;
+    width: 400px;
+    min-width: 400px;
+  }
+}
+
+.enneagram-result-img {
+  width: 396px;
+  height: 395px;
+  max-width: 396px;
+  max-height: 395px;
+  min-width: 396px;
+  min-height: 395px;
+  border-radius: 15px;
+  object-fit: contain;
+}
+
+.enneagram-result-text {
+  width: 100%;
+  max-width: 520px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .enneagram-result-text {
+    margin-left: 0;
+    width: 520px;
+    min-height: 532px;
+    flex: none;
+  }
+}
+
+.enneagram-result-title {
+  text-align: left;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 35px;
+  margin-bottom: 15px;
+  color: #262626;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .enneagram-result-title {
+    text-align: left;
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+}
+
+.enneagram-result-type {
+  display: inline-block;
+  background-color: #347aec;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 3px 0px;
+  text-align: center;
+  margin: 0 0 20px;
+  width: 60px;
+  height: 22px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  line-height: 16px;
+}
+
+.enneagram-result-description,
+.enneagram-result-field {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
+  word-spacing: normal;
+  text-align-last: left;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #262626;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.enneagram-result-label {
+  color: #347aec;
+  font-weight: 600;
+}
+
+.enneagram-save-result-button {
+  background-color: #347aec;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 24px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  margin-top: 20px;
+  align-self: flex-end;
+  transform: translateX(-270px);
+  width: 255px;
+}
+
+.enneagram-save-result-button:hover {
+  background-color: #6764e7;
+}
+
+.enneagram-save-result-button--saved {
+  background-color: #6764e7 !important;
+}
+
+.enneagram-save-message {
+  font-size: 10px;
+  color: #262626;
+  margin-top: 10px;
+  margin-left: 5px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .enneagram-main {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .enneagram-intro-section {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .enneagram-title {
+    font-size: 28px;
+  }
+
+  .enneagram-robot-section {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+
+  .enneagram-bubble-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .enneagram-robot-image {
+    align-self: center;
+  }
+
+  .enneagram-robot-image img {
+    width: 250px;
+    height: auto;
+  }
+
+  .enneagram-speech-bubble {
+    width: 100%;
+    height: auto;
+    min-height: 90px;
+    padding: 0.9rem 1rem;
+    background-size: 100% 100%;
+    background-position: center;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .enneagram-speech-bubble p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .enneagram-diagram {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .enneagram-question-section-wrapper {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .enneagram-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .enneagram-back-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .enneagram-counter {
+    width: 100%;
+  }
+
+  .enneagram-question-section {
+    padding: 19px 25px;
+  }
+
+  .enneagram-buttons {
+    flex-direction: column;
+  }
+
+  .enneagram-answer-button {
+    width: 100%;
+  }
+}
+
+/* Модальное окно подтверждения выхода */
+.enneagram-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.enneagram-modal-content {
+  background-color: #F2F5F8;
+  border-radius: 10px;
+  padding: 20px 24px;
+  width: 800px;
+  min-height: 332px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.enneagram-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #262626;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s;
+  z-index: 1;
+}
+
+.enneagram-modal-close:hover {
+  color: #347aec;
+}
+
+.enneagram-modal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.enneagram-modal-robot {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
+  animation: robotCryingContainer 4s ease-in-out infinite;
+}
+
+.enneagram-modal-robot img {
+  width: 192px;
+  height: 280px;
+  object-fit: contain;
+  animation: robotCrying 5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Анимация плача и тяжелого вздоха робота */
+@keyframes robotCrying {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  10% {
+    transform: translateY(-3px) scale(1.01) rotate(-0.5deg);
+  }
+  20% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  30% {
+    transform: translateY(10px) scale(0.98) rotate(0.5deg);
+  }
+  40% {
+    transform: translateY(15px) scale(0.96) rotate(0.8deg);
+  }
+  50% {
+    transform: translateY(18px) scale(0.95) rotate(1deg);
+  }
+  60% {
+    transform: translateY(15px) scale(0.96) rotate(0.8deg);
+  }
+  70% {
+    transform: translateY(10px) scale(0.98) rotate(0.5deg);
+  }
+  80% {
+    transform: translateY(5px) scale(0.99) rotate(0.3deg);
+  }
+  90% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+/* Анимация контейнера робота (дрожание от плача) */
+@keyframes robotCryingContainer {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10% {
+    transform: translateX(-1px);
+  }
+  20% {
+    transform: translateX(1px);
+  }
+  30% {
+    transform: translateX(-1px);
+  }
+  40% {
+    transform: translateX(1px);
+  }
+  50% {
+    transform: translateX(-0.5px);
+  }
+  60% {
+    transform: translateX(0.5px);
+  }
+  70% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+  90% {
+    transform: translateX(0);
+  }
+}
+
+.enneagram-modal-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.enneagram-modal-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0 0 20px 0;
+  text-align: left;
+}
+
+.enneagram-modal-message {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  color: #262626;
+  text-align: justify;
+  margin: 0 0 24px 0;
+  max-width: 432px;
+}
+
+.enneagram-modal-buttons {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.enneagram-modal-button {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+  width: 209px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enneagram-modal-button-outline {
+  background-color: rgb(125, 172, 241);
+  color: white;
+  border: none;
+}
+
+.enneagram-modal-button-outline:hover {
+  background-color: #6764e7;
+  color: white;
+  border: none;
+}
+
+.enneagram-modal-button-primary {
+  background-color: #347aec;
+  color: white;
+  border: none;
+}
+
+.enneagram-modal-button-primary:hover {
+  background-color: #6764e7;
+}
+
+@media (max-width: 768px) {
+  .enneagram-modal-content {
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .enneagram-modal-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .enneagram-modal-robot img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .enneagram-modal-text-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .enneagram-modal-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .enneagram-modal-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .enneagram-modal-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .enneagram-modal-button {
+    width: 100%;
+  }
+}
+
+/* Адаптация для мобильных устройств 480px */
+@media (max-width: 480px) {
+  .enneagram-page {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .enneagram-main {
+    padding: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 0;
+    overflow: visible;
+    min-height: auto;
+    height: auto;
+    padding-bottom: 3rem;
+  }
+
+  .enneagram-content {
+    max-width: 100%;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    overflow: visible;
+    min-height: auto;
+    height: auto;
+  }
+
+  /* Вводная секция */
+  .enneagram-intro-section {
+    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .enneagram-title {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .enneagram-description p {
+    font-size: 14px;
+    line-height: 140%;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  /* Секция с роботом и диаграммой */
+  .enneagram-main-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .enneagram-robot-image {
+    margin-left: 0;
+    align-self: center;
+    display: none;
+  }
+
+  .enneagram-robot-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .enneagram-speech-bubble {
+    display: none;
+  }
+
+  .enneagram-diagram-container {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .enneagram-diagram {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+  }
+
+  .enneagram-mobile-text {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .enneagram-mobile-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 140%;
+    color: #262626;
+    text-align: left;
+    margin: 0 0 15px 0;
+  }
+
+  .enneagram-mobile-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .enneagram-mobile-text p strong {
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+
+  /* Секция с вопросами */
+  .enneagram-question-section-wrapper {
+    margin-top: 1.5rem;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .enneagram-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .enneagram-back-button {
+    width: 100%;
+    padding: 8px 20px;
+    font-size: 12px;
+    height: 36px;
+    margin-bottom: 0;
+  }
+
+  .enneagram-counter {
+    width: 100%;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .enneagram-counter span {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .enneagram-question-section {
+    padding: 18px 14px;
+    min-height: 70px;
+    border-radius: 8px;
+  }
+
+  .enneagram-question-text {
+    font-size: 13px;
+    line-height: 140%;
+  }
+
+  .enneagram-get-result-button {
+    padding: 10px 0;
+  }
+
+  .enneagram-get-result-button span {
+    font-size: 14px;
+  }
+
+  .enneagram-arrow-icon {
+    width: 16px;
+    height: 9px;
+    margin-top: 10px;
+  }
+
+  /* Кнопки ответов */
+  .enneagram-buttons {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  .enneagram-answer-button {
+    width: 100%;
+    height: 44px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .enneagram-answer-button-middle {
+    order: 2;
+  }
+
+  /* Навигация */
+  .enneagram-navigation {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .enneagram-prev-button {
+    width: 120px;
+    font-size: 11px;
+    height: 16px;
+  }
+
+  .enneagram-prev-arrow {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Результаты */
+  .enneagram-result {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .enneagram-result-content {
+    width: 100%;
+    padding: 12px 10px;
+    margin-left: 0;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    min-height: auto;
+    padding-bottom: 20px;
+  }
+
+  .enneagram-result-image {
+    margin-bottom: 12px;
+    margin-right: 0;
+    width: 100%;
+    max-width: 180px;
+    padding: 8px;
+  }
+
+  .enneagram-result-img {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+  }
+
+  .enneagram-result-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .enneagram-result-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .enneagram-result-type {
+    font-size: 11px;
+    padding: 2px 0;
+    width: 45px;
+    height: 16px;
+    line-height: 12px;
+    margin-bottom: 8px;
+  }
+
+  .enneagram-result-description,
+  .enneagram-result-field {
+    font-size: 12px;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    text-align: justify !important;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-spacing: normal;
+    text-align-last: left;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .enneagram-save-result-button {
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+    align-self: stretch;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding: 10px 14px;
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .enneagram-save-message {
+    font-size: 11px;
+    margin-top: 8px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #262626;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    display: block;
+    padding: 5px 0;
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+  }
+
+  /* Модальное окно для мобильных */
+  .enneagram-modal-overlay {
+    padding: 10px;
+  }
+
+  .enneagram-modal-content {
+    padding: 20px 16px;
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    border-radius: 8px;
+  }
+
+  .enneagram-modal-close {
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .enneagram-modal-body {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .enneagram-modal-robot {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .enneagram-modal-robot img {
+    width: 140px;
+    height: 200px;
+  }
+
+  .enneagram-modal-text-content {
+    margin-top: 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  .enneagram-modal-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .enneagram-modal-message {
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 100%;
+    line-height: 140%;
+  }
+
+  .enneagram-modal-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .enneagram-modal-button {
+    width: 100%;
+    max-width: 100%;
+    height: 44px;
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  /* Секция с заголовком и датой для сохраненного результата */
+  .enneagram-saved-result-header {
+    margin-left: 20px !important;
+  }
+}

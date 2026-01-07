@@ -1,0 +1,621 @@
+.tests-page {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tests-main {
+  flex: 1;
+  padding: 125px 2rem 2rem 2rem;
+}
+
+.tests-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 27px;
+  column-gap: 27px;
+  align-items: start;
+  margin-left: 50px;
+}
+
+@media (min-width: 768px) {
+  .tests-grid {
+    grid-template-columns: 408px 408px;
+    row-gap: 27px;
+    column-gap: 27px;
+    align-items: start;
+    justify-content: start;
+  }
+}
+
+.test-card {
+  width: 408px;
+  height: 280px;
+  background: linear-gradient(to bottom right, #508fff, #6e63f5);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.test-card-icon {
+  width: 100%;
+  height: 176.62px;
+  background: linear-gradient(to bottom right, #508fff, #6e63f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.test-card-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.test-card-icon--mbi img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-icon--ipi img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-icon--ei img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-icon--mbti img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-icon--si img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-icon--new img {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.test-card-content {
+  background-color: white;
+  padding: 1.5rem;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.test-card-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  margin-top: -20px;
+}
+
+.test-card-description {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 0.5rem;
+  margin-top: -10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.test-card-button {
+  font-family: 'Unbounded', sans-serif;
+  width: 195px;
+  height: 22px;
+  padding: 0;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.test-card-button--available {
+  background-color: #347aec;
+  color: white;
+}
+
+.test-card-button--available:hover {
+  background-color: #6764e7;
+}
+
+.test-card-button--disabled {
+  background-color: #a6bff0;
+  color: white;
+  cursor: not-allowed;
+}
+
+.test-card-button:disabled {
+  opacity: 0.6;
+}
+
+.test-card--blurred {
+  opacity: 0.9;
+}
+
+.test-card--blurred .test-card-icon,
+.test-card--blurred .test-card-title,
+.test-card--blurred .test-card-description {
+  filter: blur(2px);
+}
+
+.test-card--blurred .test-card-button {
+  filter: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Адаптация для экранов 480px и меньше */
+@media screen and (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Переопределяем базовые стили страницы */
+  .tests-page {
+    min-height: 100vh !important;
+    background-color: #2d2d2d !important;
+    display: flex !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    padding-bottom: 80px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Темная полоса сверху (хедер) */
+  .mobile-header-top {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    background-color: #1f2937 !important;
+    padding: 0.5rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 1000 !important;
+    height: 40px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mobile-header-text {
+    color: #9ca3af !important;
+    font-size: 12px !important;
+    font-family: 'Unbounded', sans-serif !important;
+    line-height: 1 !important;
+  }
+
+  /* Основной контент - переопределяем базовые стили */
+  .tests-main {
+    flex: 1 !important;
+    padding: 0 !important;
+    padding-top: calc(
+      40px + 60px + 1rem
+    ) !important; /* 40px для хедера + 60px для логотипа + 1rem для padding */
+    padding-bottom: 100px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background-color: white !important;
+    min-height: calc(100vh - 80px) !important;
+    margin: 0 auto !important;
+    margin-top: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Убираем padding слева у сетки карточек */
+  .tests-grid {
+    padding-left: 0 !important;
+  }
+
+  /* Логотип PSY MI вверху белой области */
+  .mobile-logo-container {
+    background-color: white !important;
+    padding: 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    border-bottom: 1px solid #e5e7eb !important;
+  }
+
+  .mobile-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .mobile-logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+  }
+
+  .mobile-logo-text {
+    font-family: 'Unbounded', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Сетка карточек тестов - переопределяем базовые стили */
+  .tests-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 1rem !important;
+    column-gap: 0 !important;
+    align-items: start !important;
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+    justify-items: center !important;
+  }
+
+  /* Карточки тестов - переопределяем базовые стили */
+  .test-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 280px !important;
+    background: linear-gradient(to bottom right, #508fff, #6e63f5) !important;
+    border-radius: 0.5rem !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+    justify-self: center !important;
+    cursor: grab !important;
+    user-select: none !important;
+    touch-action: none !important;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease !important;
+  }
+
+  .test-card:active {
+    cursor: grabbing !important;
+  }
+
+  .test-card--dragging {
+    opacity: 0.5 !important;
+    transform: scale(0.95) !important;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .test-card--drag-over {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 16px -4px rgba(52, 122, 236, 0.3) !important;
+    border: 2px solid #347aec !important;
+    border-radius: 0.5rem !important;
+  }
+
+  /* Отключаем drag and drop на десктопе */
+  @media (min-width: 481px) {
+    .test-card {
+      cursor: default !important;
+      user-select: auto !important;
+      touch-action: auto !important;
+    }
+  }
+
+  /* Иконки карточек - переопределяем базовые стили */
+  .test-card-icon {
+    width: 100% !important;
+    height: 176px !important;
+    background: linear-gradient(to bottom right, #508fff, #6e63f5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+  }
+
+  .test-card-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Переопределяем масштабирование для разных типов иконок */
+  .test-card-icon--mbi img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  .test-card-icon--ipi img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  .test-card-icon--ei img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  .test-card-icon--mbti img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  .test-card-icon--si img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  .test-card-icon--new img {
+    transform: scale(1.2) !important;
+    transform-origin: center !important;
+  }
+
+  /* Контент карточек - переопределяем базовые стили */
+  .test-card-content {
+    background-color: white !important;
+    padding: 1.5rem !important;
+    min-height: 104px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    border-radius: 0 0 0.5rem 0.5rem !important;
+  }
+
+  /* Заголовки карточек - переопределяем базовые стили */
+  .test-card-title {
+    font-family: 'Unbounded', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    margin-bottom: 0.75rem !important;
+    margin-top: -20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    line-height: 1.3 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Описания карточек - переопределяем базовые стили */
+  .test-card-description {
+    color: #6b7280 !important;
+    font-size: 13px !important;
+    margin-bottom: 0.5rem !important;
+    margin-top: -10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
+    flex-shrink: 0 !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    display: -webkit-box !important;
+    /* -webkit-line-clamp: 2 !important;*/
+    -webkit-box-orient: vertical !important;
+  }
+
+  /* Кнопки карточек - переопределяем базовые стили */
+  .test-card-button {
+    font-family: 'Unbounded', sans-serif !important;
+    width: 195px !important;
+    height: 22px !important;
+    padding: 0 !important;
+    border-radius: 0.5rem !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: auto !important;
+  }
+
+  .test-card-button--available {
+    background-color: #347aec !important;
+    color: white !important;
+  }
+
+  .test-card-button--available:hover {
+    background-color: #6764e7 !important;
+  }
+
+  .test-card-button--disabled {
+    background-color: #a6bff0 !important;
+    color: white !important;
+    cursor: not-allowed !important;
+  }
+
+  .test-card-button:disabled {
+    opacity: 0.6 !important;
+  }
+
+  /* Стили для размытых карточек */
+  .test-card--blurred {
+    opacity: 0.9 !important;
+  }
+
+  .test-card--blurred .test-card-icon,
+  .test-card--blurred .test-card-title,
+  .test-card--blurred .test-card-description {
+    filter: blur(2px) !important;
+  }
+
+  .test-card--blurred .test-card-button {
+    filter: none !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* Скрываем старую нижнюю навигацию, так как Sidebar теперь выполняет эту роль */
+  .mobile-bottom-nav,
+  nav.mobile-bottom-nav {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  .mobile-nav-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    cursor: pointer !important;
+    flex: 1 !important;
+    color: #6b7280 !important;
+    font-size: 10px !important;
+    font-family: 'Unbounded', sans-serif !important;
+  }
+
+  .mobile-nav-item--active {
+    color: #347aec !important;
+  }
+
+  /* Стили для иконок - серые круги для неактивных */
+  .mobile-nav-item:not(.mobile-nav-item--active) .mobile-nav-icon {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #f3f4f6 !important;
+    border-radius: 50% !important;
+    position: relative !important;
+  }
+
+  .mobile-nav-item:not(.mobile-nav-item--active) .mobile-nav-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: #6b7280 !important;
+    stroke: #6b7280 !important;
+  }
+
+  /* Активный элемент - синий круг с белой галочкой */
+  .mobile-nav-item--active .mobile-nav-icon {
+    position: relative !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mobile-nav-item--active .mobile-nav-icon::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, #508fff 0%, #6e63f5 100%) !important;
+    border-radius: 50% !important;
+    z-index: 0 !important;
+  }
+
+  .mobile-nav-item--active .mobile-nav-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+    position: relative !important;
+    z-index: 1 !important;
+    stroke: white !important;
+    fill: none !important;
+  }
+
+  .mobile-nav-item--flag .mobile-nav-icon {
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #f3f4f6 !important;
+    border-radius: 50% !important;
+  }
+
+  .mobile-nav-label {
+    font-size: 10px !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    margin-top: 2px !important;
+    color: inherit !important;
+  }
+}
