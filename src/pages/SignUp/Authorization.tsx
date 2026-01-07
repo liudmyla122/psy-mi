@@ -34,11 +34,6 @@ function TypewriterWords({ text, delay = 150, startDelay = 0, className = '', hi
     }
   }, [currentIndex, words, delay, hasStarted]);
 
-  const isHighlightWord = (word: string, index: number) => {
-    if (!highlightText) return false;
-    const wordIndex = words.indexOf(word);
-    return wordIndex < highlightWords.length;
-  };
 
   return (
     <span className={className}>
@@ -65,7 +60,7 @@ type Lang = {
   login_page: any;
 };
 
-export function Authorization({ lang }: { lang: Lang }) {
+export function Authorization({ lang, children }: { lang: Lang; children?: React.ReactNode }) {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -122,7 +117,7 @@ export function Authorization({ lang }: { lang: Lang }) {
           </p>
         </div>
         <div className="md:ml-[35px] md:mt-[35px]">
-          <Form lang={lang} />
+          {children || <Form lang={lang} />}
         </div>
       </div>
     </section>
