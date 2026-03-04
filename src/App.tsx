@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { LocalizationProvider } from './context/LocalizationContext';
 import { RegisterPage } from './pages/Register/Register';
 import { TestsPage } from './pages/Test/Tests';
 import { AboutPage } from './pages/About/About';
@@ -19,8 +20,9 @@ import { ResetPasswordPage } from './pages/ResetPassword/ResetPassword';
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/register" replace />} />
+    <LocalizationProvider>
+      <Routes>
+        <Route path="/" element={<Navigate to="/register" replace />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
@@ -67,6 +69,7 @@ export default function App() {
       <Route path="/en/my-profile" element={<ProfilePage />} />
       <Route path="/my-profile" element={<ProfilePage />} />
       <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+      </Routes>
+    </LocalizationProvider>
   );
 }
