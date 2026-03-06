@@ -4,6 +4,7 @@ import { Sidebar } from '../../layout';
 import axios from 'axios';
 import './Profile.css';
 import { getAssetUrl } from '../../utils/assetPath';
+import { ProfileLanding } from './ProfileLanding';
 
 const sadRobotImageUrl = getAssetUrl('_assets/images/sadRobot.svg');
 
@@ -891,24 +892,8 @@ export function ProfilePage() {
 
           {/* Если нет результатов */}
           {testResults.length === 0 && (
-            <div className="profile-no-results">
-              <p className="profile-no-results-text">Ви ще не пройшли жодного тесту.</p>
-              <button
-                type="button"
-                className="profile-start-test-button"
-                onClick={() => {
-                  const currentPath = location.pathname;
-                  if (currentPath.startsWith('/ua/')) {
-                    navigate('/ua/tests');
-                  } else if (currentPath.startsWith('/en/')) {
-                    navigate('/en/tests');
-                  } else {
-                    navigate('/tests');
-                  }
-                }}
-              >
-                Пройти тестування
-              </button>
+            <div className="profile-landing-wrapper">
+              <ProfileLanding />
             </div>
           )}
         </div>

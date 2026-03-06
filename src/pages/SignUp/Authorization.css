@@ -1,11 +1,20 @@
+@media screen and (min-width: 768px) {
+  /* Десктопная версия робота - еще больше */
+  img[src*="robot-registr"] {
+    width: 400px !important; /* Увеличено до 400px */
+    height: 525px !important;
+    object-fit: contain;
+  }
+}
+
 /* Адаптация для экранов 480px */
 @media screen and (max-width: 480px) {
   /* Уменьшаем изображение робота на 80px */
-  img.flex-shrink-0[src*="smileRobot"] {
+  img[src*="robot-registr"] {
     width: 110px !important; /* 190px - 80px */
     height: 175px !important; /* 255px - 80px */
     object-fit: contain !important;
-    margin-top: 60px !important; /* 40px + 20px = 60px */
+    margin-top: 80px !important; /* 40px + 40px = 80px */
   }
 
   /* Центрируем весь контейнер section на мобильных экранах */

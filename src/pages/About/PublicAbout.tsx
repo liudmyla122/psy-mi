@@ -35,7 +35,7 @@ const aboutAssets = {
   },
 };
 
-export function AboutPage() {
+export function PublicAbout() {
   const navigate = useNavigate();
   const { t } = useLocalization();
 

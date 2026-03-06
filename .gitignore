@@ -49,3 +49,7 @@ prisma/migrations/
 
 
 
+
+# Local History
+.history/
+.lh/

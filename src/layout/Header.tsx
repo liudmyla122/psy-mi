@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { getAssetUrl } from '../utils/assetPath';
 import { useLocalization } from '../context/LocalizationContext';
@@ -10,6 +10,17 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const { language, setLanguage, t } = useLocalization();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      setIsLoggedIn(!!localStorage.getItem('authToken'));
+    };
+
+    checkAuth();
+
+    // Check on every render/navigation
+  }, [location.pathname]);
 
   const toggleLanguage = () => {
     setLanguage(language === 'ua' ? 'en' : 'ua');
@@ -17,12 +28,38 @@ export function Header() {
 
   const navItems = [
     { label: t('header.about'), href: '/about' },
-    { label: t('header.tests'), href: '/tests' },
-    { label: t('header.reviews'), href: '/reviews' },
+    { label: t('header.tests'), href: '/about#tests' },
+    { label: t('header.reviews'), href: '/about#reviews' },
   ];
 
   const handleNavigation = (href: string) => {
-    navigate(href);
+    if (href === '/about#tests') {
+      navigate('/about');
+      setTimeout(() => {
+        const testsElement = document.getElementById('tests');
+        if (testsElement) {
+          testsElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else if (href === '/about#reviews') {
+      navigate('/about');
+      setTimeout(() => {
+        const reviewsElement = document.getElementById('reviews');
+        if (reviewsElement) {
+          reviewsElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      navigate(href);
+    }
+  };
+
+  const handleTakeTestClick = () => {
+    if (isLoggedIn) {
+      navigate('/tests');
+    } else {
+      navigate('/register');
+    }
   };
 
   return (
@@ -65,12 +102,18 @@ export function Header() {
           >
             {language}
           </button>
-          <button className="header-btn-test" onClick={() => navigate('/tests')}>
+          <button className="header-btn-test" onClick={handleTakeTestClick}>
             {t('header.takeTest')}
           </button>
-          <button className="header-btn-login" onClick={() => navigate('/register')}>
-            {t('header.login')}
-          </button>
+          {isLoggedIn ? (
+            <button className="header-btn-login" onClick={() => navigate('/my-profile')}>
+              {t('header.profile')}
+            </button>
+          ) : (
+            <button className="header-btn-login" onClick={() => navigate('/register')}>
+              {t('header.login')}
+            </button>
+          )}
         </div>
       </div>
     </header>

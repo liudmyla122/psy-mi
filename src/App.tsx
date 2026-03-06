@@ -2,7 +2,8 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { LocalizationProvider } from './context/LocalizationContext';
 import { RegisterPage } from './pages/Register/Register';
 import { TestsPage } from './pages/Test/Tests';
-import { AboutPage } from './pages/About/About';
+import { PublicAbout } from './pages/About/PublicAbout';
+import { RegisteredAbout } from './pages/Profile/RegisteredAbout';
 import { ArticlesPage } from './pages/Articles/Articles';
 import { EmotionalIntelligencePage } from './pages/Test/EmotionalIntelligence/EmotionalIntelligence';
 import { EmotionalIntelligenceResultPage } from './pages/Test/EmotionalIntelligence/EmotionalIntelligenceResult';
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <LocalizationProvider>
       <Routes>
-        <Route path="/" element={<Navigate to="/register" replace />} />
+        <Route path="/" element={<Navigate to="/about" replace />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
@@ -56,9 +57,9 @@ export default function App() {
       <Route path="/test/innovation-potential/result" element={<InnovationPotentialResultPage />} />
       <Route path="/ua/test/innovation-potential/result" element={<InnovationPotentialResultPage />} />
       <Route path="/en/test/innovation-potential/result" element={<InnovationPotentialResultPage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/ua/about" element={<AboutPage />} />
-      <Route path="/en/about" element={<AboutPage />} />
+      <Route path="/about" element={<PublicAbout />} />
+      <Route path="/ua/about" element={<PublicAbout />} />
+      <Route path="/en/about" element={<PublicAbout />} />
       <Route path="/articles" element={<ArticlesPage />} />
       <Route path="/ua/articles" element={<ArticlesPage />} />
       <Route path="/en/articles" element={<ArticlesPage />} />
@@ -68,6 +69,9 @@ export default function App() {
       <Route path="/ua/my-profile" element={<ProfilePage />} />
       <Route path="/en/my-profile" element={<ProfilePage />} />
       <Route path="/my-profile" element={<ProfilePage />} />
+      <Route path="/my-profile/about" element={<RegisteredAbout />} />
+      <Route path="/ua/my-profile/about" element={<RegisteredAbout />} />
+      <Route path="/en/my-profile/about" element={<RegisteredAbout />} />
       <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </LocalizationProvider>

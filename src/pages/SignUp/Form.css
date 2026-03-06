@@ -121,3 +121,413 @@
   pointer-events: none;
 }
 
+/* New Authentication Card Styles */
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Unbounded', sans-serif;
+  text-align: center;
+}
+
+.auth-card-logo {
+  margin-bottom: 24px;
+  width: 187px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px; /* Minimal radius to match the screenshot */
+  position: relative;
+  background: white;
+}
+
+/* Градиентная рамка для логотипа - УБРАНА по просьбе пользователя
+.auth-card-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1px;
+  padding: 1.09px;
+  background: linear-gradient(180deg, #FAFAFF 0%, #A6BFF0 100%); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+*/
+
+.auth-card-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.auth-card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700; /* Bold */
+  color: #262626;
+  margin-bottom: 18px; /* Paragraph spacing from screenshot */
+  line-height: 130%;
+  text-align: center;
+  width: 265px;
+  height: auto; /* Allow height to adjust based on content wrapping */
+  min-height: 52px; /* From screenshot */
+  letter-spacing: 0%;
+}
+
+.auth-card-actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.auth-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.auth-btn-google {
+  background-color: #347AEC;
+  color: white;
+  position: relative;
+}
+
+.auth-btn-google:hover {
+  background-color: #2a65d0;
+}
+
+.auth-btn-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.auth-btn-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.auth-btn-email {
+  background-color: #EEF2F6;
+  color: #262626;
+}
+
+.auth-btn-email:hover {
+  background-color: #e5e9f0;
+}
+
+.auth-card-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.auth-footer-link {
+  font-size: 13px;
+  color: #262626;
+  margin: 0;
+}
+
+.auth-footer-link button {
+  color: #347AEC;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.auth-footer-link button:hover {
+  text-decoration: underline;
+}
+
+.auth-support {
+  font-size: 11px;
+  color: #8E8E93;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.auth-support p {
+  margin: 0;
+}
+
+.auth-support a {
+  color: #347AEC;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-support a:hover {
+  text-decoration: underline;
+}
+
+/* Form inputs styling */
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.auth-input {
+  width: 100%;
+  height: 48px;
+  background-color: #F9FAFB;
+  border: none;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  color: #262626;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.auth-input:focus {
+  background-color: white;
+  box-shadow: 0 0 0 2px rgba(52, 122, 236, 0.1);
+}
+
+.auth-input::placeholder {
+  color: #9CA3AF;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  height: 48px;
+  background-color: #347AEC;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+.auth-submit-btn:hover {
+  background-color: #2a65d0;
+}
+
+.auth-forgot-password {
+  background: none;
+  border: none;
+  color: #347AEC;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: -8px;
+  align-self: flex-end;
+}
+
+.auth-forgot-password:hover {
+  text-decoration: underline;
+}
+
+.auth-password-hints {
+  width: 100%;
+  background-color: #FFF8E1;
+  border: 1px solid #FFB74D;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.auth-alert {
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Стили для экрана выбора цели использования */
+.scope-selection-card {
+  max-width: 500px;
+}
+
+.scope-selection-options {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.scope-radio-group {
+  width: 100%;
+}
+
+.scope-radio-button {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 12px;
+  border-radius: 8px !important;
+  border: 1px solid #E5E7EB !important;
+  display: flex !important;
+  align-items: center;
+  padding: 0 16px !important;
+  font-family: 'Unbounded', sans-serif !important;
+  font-size: 13px !important;
+  color: #374151 !important;
+  background-color: #F9FAFB !important;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.scope-radio-button:hover {
+  border-color: #347AEC !important;
+  background-color: #F0F5FF !important;
+}
+
+/* Скрываем стандартную радио-кнопку antd и стилизуем контейнер label */
+.scope-radio-button.ant-radio-button-wrapper {
+  text-align: left;
+  justify-content: flex-start;
+  box-shadow: none !important;
+}
+
+.scope-radio-button.ant-radio-button-wrapper-checked {
+  border-color: #347AEC !important;
+  background-color: #F0F5FF !important;
+  color: #347AEC !important;
+  font-weight: 500;
+}
+
+.scope-radio-button.ant-radio-button-wrapper::before {
+  display: none !important;
+}
+
+/* Добавляем кастомный круг для радио-кнопки */
+.scope-radio-button::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  border-radius: 50%;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+}
+
+.scope-radio-button.ant-radio-button-wrapper-checked::after {
+  border-color: #347AEC;
+  background-color: #347AEC;
+  box-shadow: inset 0 0 0 3px white;
+}
+
+/* Сдвигаем текст, чтобы не наезжал на иконку */
+.scope-radio-button > span:last-child {
+  margin-left: 28px;
+  width: 100%;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.auth-btn-secondary {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 185px !important; /* Fixed Width */
+  height: 48px !important; /* Hug Height */
+  padding: 14px 22px !important; /* Padding */
+  border-radius: 10px !important; /* Radius */
+  gap: 10px;
+  background-color: #E5E7EB; /* Gray color */
+  color: #374151; /* Dark text */
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 400; /* Regular weight */
+  font-size: 16px; /* Increased font size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase; /* Uppercase text */
+}
+
+.auth-btn-secondary:hover {
+  /* background-color: #d1d5db !important; - Disabled hover effect */
+}
+
+.auth-btn-primary {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 186px !important; /* Fixed Width */
+  height: 48px !important; /* Hug Height */
+  padding: 14px 22px !important; /* Padding */
+  border-radius: 10px !important; /* Radius */
+  gap: 10px;
+  background: linear-gradient(90deg, #347AEC 0%, #6764E7 100%); /* Gradient Fill */
+  color: white; /* White text */
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Эффект градиентной границы через псевдоэлемент, так как border-image не поддерживает border-radius */
+.auth-btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: -3px; /* 3px border width */
+  border-radius: 13px; /* 10px radius + 3px border */
+  padding: 3px; 
+  background: linear-gradient(90deg, #347AEC 0%, #6764E7 100%); 
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1;
+  opacity: 0; /* Скрываем бордер, так как фон и так градиентный, но если нужно будет сделать кнопку прозрачной с бордером - это пригодится */
+}
+
+.auth-btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(52, 122, 236, 0.3);
+}

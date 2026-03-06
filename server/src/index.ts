@@ -106,8 +106,13 @@ const authenticateToken = async (req: express.Request, res: express.Response, ne
 
 // Регистрация пользователя
 app.post('/api/auth/users/', async (req, res) => {
+  console.log('Received registration request');
+  const startTime = Date.now();
+  
   try {
-    const { email, password, re_password, first_name, scope } = req.body;
+    console.log('Request body size:', JSON.stringify(req.body).length);
+    const { email, password, re_password, first_name, scope, usageIntent, avatar, hiringVolume, companyName, teamSize } = req.body;
+    console.log('Registration data parsed for email:', email);
 
     // Валидация
     if (!email || !password || !re_password || !first_name) {
@@ -131,10 +136,12 @@ app.post('/api/auth/users/', async (req, res) => {
       });
     }
 
+    console.log('Checking for existing user...');
     // Проверка существования пользователя
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
+    console.log('Existing user check completed:', existingUser ? 'Found' : 'Not found');
 
     if (existingUser) {
       return res.status(400).json({
@@ -143,24 +150,35 @@ app.post('/api/auth/users/', async (req, res) => {
     }
 
     // Хеширование пароля
+    console.log('Hashing password...');
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log('Password hashed');
 
     // Создание пользователя
+    console.log('Creating user in database...');
     const user = await prisma.user.create({
       data: {
         email,
         password: hashedPassword,
         first_name,
         scope: scope || null,
+        usageIntent: usageIntent || null,
+        hiringVolume: hiringVolume || null,
+        companyName: companyName || null,
+        teamSize: teamSize || null,
+        image: avatar || null, // Сохраняем аватар
         isRegistered: true,
       },
     });
+    console.log('User created:', user.id);
 
     res.status(201).json({
       id: user.id,
       email: user.email,
       first_name: user.first_name,
       scope: user.scope,
+      usageIntent: user.usageIntent,
+      image: user.image,
     });
   } catch (error: any) {
     console.error('Registration error:', error);

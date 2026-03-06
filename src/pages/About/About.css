@@ -8,6 +8,14 @@
   margin: 0 auto;
 }
 
+/* Make header sticky on About page */
+.about-page .main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #f3f5f8; /* Ensure background is opaque */
+}
+
 .about-main {
   flex: 1;
   padding: 40px 2rem 2rem 2rem;
@@ -161,8 +169,6 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  padding: 14px 30px;
-  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   text-transform: uppercase;
@@ -172,7 +178,15 @@
 .about-button-test {
   background: transparent;
   color: #262626;
-  border: 2px solid #347aec;
+  border: 3px solid #347aec;
+  border-radius: 10px;
+  padding: 14px 22px;
+  width: 245px;
+  height: 48px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-button-test:hover {
@@ -182,9 +196,17 @@
 
 .about-button-login {
   background: linear-gradient(90deg, #347aec 0%, #6764e7 100%);
-  border: none;
+  border: 3px solid transparent;
+  background-origin: border-box;
   color: white;
-  padding: 14px 50px;
+  padding: 14px 22px;
+  width: 223px;
+  height: 48px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-button-login:hover {
@@ -234,7 +256,7 @@
 }
 
 .about-content > .about-section-platform {
-  margin-top: 53px !important;
+  margin-top: 100px !important;
 }
 
 .about-content > .about-section-platform .about-section-title,
@@ -251,7 +273,7 @@
 /* Trusted section */
 .about-section-trusted {
   width: 100vw;
-  margin: 0 0 50px 0;
+  margin: 100px 0 50px 0;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   height: 143px;
@@ -301,7 +323,8 @@
 }
 
 @keyframes keyPress {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
@@ -312,11 +335,21 @@
 }
 
 /* Stagger animation for each card to create a wave/random typing effect */
-.about-logo-card:nth-child(1) { animation-delay: 0s; }
-.about-logo-card:nth-child(2) { animation-delay: 0.6s; }
-.about-logo-card:nth-child(3) { animation-delay: 1.2s; }
-.about-logo-card:nth-child(4) { animation-delay: 1.8s; }
-.about-logo-card:nth-child(5) { animation-delay: 2.4s; }
+.about-logo-card:nth-child(1) {
+  animation-delay: 0s;
+}
+.about-logo-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.about-logo-card:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.about-logo-card:nth-child(4) {
+  animation-delay: 1.8s;
+}
+.about-logo-card:nth-child(5) {
+  animation-delay: 2.4s;
+}
 
 .about-logo-card:hover {
   /* No hover effect needed as per request */
@@ -339,7 +372,7 @@
 /* About the platform section */
 .about-section-platform {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -447,52 +480,293 @@
 }
 
 /* Our Clients section */
+.about-section-clients {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 251px;
+}
+
+.about-section-clients .about-section-title {
+  text-align: center;
+  margin-left: 0;
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 135%;
+  text-transform: uppercase;
+  color: #262626;
+  letter-spacing: 0;
+}
+
 .about-clients-container {
   display: flex;
   flex-direction: row;
-  gap: 41px;
-  margin-top: 30px;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1220px;
+  max-width: 100%;
+  gap: 20px;
+  margin-top: 0;
   flex-wrap: wrap;
 }
 
 .about-client-item {
   display: flex;
   flex-direction: column;
-  min-width: 200px;
-  width: min-content;
+  width: 250px;
   align-items: center;
   text-align: center;
-  margin-right: 10px;
+  margin-right: 0;
 }
 
 .about-client-icon {
-  width: 117px;
-  height: 117px;
+  width: 140px;
+  height: 140px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
 }
 
 .about-client-icon img {
-  width: 58px;
-  height: 53px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
 }
 
 .about-client-label {
-  font-size: 15px;
-  text-transform: uppercase;
-  margin-top: 14px;
   font-family: 'Unbounded', sans-serif;
-  line-height: 20.8px;
-  background: linear-gradient(to right, #347aec, #6764e7);
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #5e6fec; /* Fallback color */
+  background: linear-gradient(90deg, #347aec 0%, #6764e7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin: 0;
+  max-width: 234px;
+}
+
+/* Our Tests section */
+.about-section-tests {
+  margin-top: 200px !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 336px !important;
+}
+
+.about-section-tests .about-section-title {
+  text-align: center;
+  margin-left: 0;
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 135%;
+  text-transform: uppercase;
+  color: #262626;
+  letter-spacing: 0;
+}
+
+.about-tests-container {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  max-width: 100%;
+  gap: 18.25px;
+}
+
+.about-test-card {
+  width: 372.24px;
+  height: 229px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.about-test-image-container {
+  height: 161.49px !important; /* Unified height for all test image containers */
+  width: 100%;
+  background: linear-gradient(90deg, #4485ed 0%, #6764e7 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-test-image-cover {
+  width: 319.8px;
+  height: 83.15px;
+  object-fit: contain;
+}
+
+.about-test-placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+}
+
+/* PAEI specific styles */
+/* Removed placeholder styles */
+
+/* Innovation specific styles */
+.innovation-container {
+  height: 161.49px !important;
+  width: 372.24px !important;
+}
+
+.innovation-container .about-test-image-cover {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Enneagram specific styles */
+.enneagram-container {
+  height: 161.49px !important;
+  width: 372.24px !important;
+}
+
+.enneagram-container .about-test-image-cover {
+  width: 321.83px !important;
+  height: 129.93px !important;
+  object-fit: contain !important;
+}
+
+.about-test-content {
+  padding: 12px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.about-test-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0 0 5px 0;
+  line-height: 100%;
+  white-space: nowrap;
+}
+
+.about-test-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Author's Development section */
+.about-section-author {
+  margin-top: 100px;
+  width: 100%;
+  height: 313px;
+  display: flex;
+  justify-content: center;
+  max-width: 1440px; /* Limit width to match design */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-author-content {
+  width: 1220px;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-author-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-right: 40px;
+}
+
+.about-author-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #347aec;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  line-height: 135%;
+  letter-spacing: 0;
+}
+
+.about-author-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: #262626;
+  margin: 0 0 24px 0;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.about-author-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #262626;
+  line-height: 130%;
+  margin: 0 0 32px 0;
+  max-width: 863px;
+  letter-spacing: 0;
+  text-align: justify;
+}
+
+.about-author-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.about-author-right {
+  width: auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-author-image-container {
+  width: 247px;
+  height: 241px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #ffffff;
+}
+
+.about-author-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Responsive styles */
@@ -868,4 +1142,232 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
   }
+}
+
+/* Reviews section */
+.about-section-reviews {
+  margin-top: 100px;
+  width: 100%;
+  height: 489px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px; /* Add 50px bottom margin to push footer down */
+}
+
+.about-section-reviews .about-section-title {
+  text-align: center;
+  margin-left: 0;
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 135%;
+  text-transform: uppercase;
+  color: #262626;
+  letter-spacing: 0;
+}
+
+.about-reviews-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 26px; /* Set gap to 26px as requested */
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* Ensure reviews section spans full width if needed for background, but content stays in container */
+.about-section-reviews {
+  width: 100%; /* Or inherit from parent if parent is constrained */
+  max-width: 1440px; /* Match the max-width of other sections like author section */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-review-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 534.71px; /* Fixed width matching the bubble */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.about-review-bubble {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-review-left .about-review-bubble {
+  width: 534.71px;
+  height: 387.22px;
+  background-image: url('../../_assets/images/pro proekt img/Path-levo.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 40px 32px 40px 49px; /* Reduced right padding to fit 453px text */
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+/* Remove CSS triangle tail */
+.about-review-left .about-review-bubble::before {
+  display: none;
+}
+
+.about-review-right .about-review-bubble {
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 534.71px;
+  height: 387.22px;
+  position: relative;
+  z-index: 0;
+  background: none;
+  box-shadow: none;
+  padding: 40px 49px 40px 32px; /* Reduced left padding to fit 453px text */
+  box-sizing: border-box;
+  border: none;
+}
+
+/* Background image flipped for right bubble */
+.about-review-right .about-review-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../_assets/images/pro proekt img/Path-levo.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  z-index: -1;
+}
+
+/* Remove CSS triangle tail */
+.about-review-right .about-review-bubble::after {
+  display: none;
+}
+
+.about-review-author {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #347aec;
+  margin: 0 0 16px 0;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+}
+
+.about-review-text {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 15px !important;
+  line-height: 130% !important;
+  color: #000000 !important;
+  width: 453px !important;
+  max-width: 100% !important;
+  overflow-y: hidden;
+  font-weight: 400 !important;
+  letter-spacing: 0px !important;
+  text-align: left !important;
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 20px; /* Space for the time if it wraps, or just bottom padding */
+}
+
+.about-review-text p {
+  margin: 0; /* No margin between paragraphs */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.about-review-text strong {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 700 !important; /* Bold */
+  font-size: 15px !important;
+  line-height: 130% !important;
+  color: #000000 !important;
+  letter-spacing: 0px !important;
+}
+
+.about-review-text p:last-child {
+  margin-bottom: 0;
+  display: inline;
+  position: relative;
+  top: 15px; /* Move "Успіхів вам!" down by 15px (10 + 5) */
+}
+
+.about-review-time {
+  display: inline-block; /* Make time inline-block to sit next to text */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  color: #8e8e93;
+  width: auto; /* Allow auto width */
+  height: auto;
+  line-height: 1;
+  margin-left: 10px; /* Spacing between text and time */
+  position: relative; /* Changed to relative to allow top adjustment */
+  top: 15px !important; /* Force move down by 15px (10 + 5) */
+  float: right; /* Float to right to stick to the end */
+}
+
+.about-review-left .about-review-time {
+  /* Reset specific positioning */
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+}
+
+.about-review-right .about-review-time {
+  /* Reset specific positioning */
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+}
+
+.about-review-avatar-container {
+  position: absolute;
+  bottom: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-review-left .about-review-avatar-container {
+  width: 49px;
+  height: 50px;
+  top: 368px; /* Shifted up by another 20px (388px - 20px) */
+  left: -50px;
+  bottom: auto;
+  border: 3px solid white;
+}
+
+.about-review-right .about-review-avatar-container {
+  width: 49px;
+  height: 50px;
+  top: 368px; /* Shifted up by another 20px (388px - 20px) */
+  right: -50px;
+  bottom: auto;
+  border: 3px solid white;
+}
+
+.about-review-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

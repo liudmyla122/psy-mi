@@ -83,12 +83,13 @@ const getNavItems = (currentLang: 'ua' | 'en'): NavItem[] => {
     ua: {
       about: 'Про проєкт',
       tests: 'Пройти тестування',
-      articles: 'Наші статті',
+      settings: 'Personal settings',
     },
     en: {
       about: 'About project',
       tests: 'Pass the tests',
       articles: 'Our articles',
+      settings: 'Personal settings',
     },
   };
 
@@ -97,7 +98,7 @@ const getNavItems = (currentLang: 'ua' | 'en'): NavItem[] => {
   return [
     {
       label: langLabels.about,
-      href: '/about',
+      href: '/my-profile/about',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
           <path
@@ -137,6 +138,18 @@ const getNavItems = (currentLang: 'ua' | 'en'): NavItem[] => {
         </svg>
       ),
     },
+    {
+      label: langLabels.settings,
+      href: '/my-profile', // Пока ведет на профиль, так как отдельной страницы настроек нет
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+          <path
+            d="M10.8333 7.58333V5.41667H11.9167V7.58333H10.8333ZM10.8333 5.41667H11.9167C11.9167 4.81828 11.4317 4.33333 10.8333 4.33333V5.41667ZM10.8333 7.58333C11.4317 7.58333 11.9167 7.09839 11.9167 6.5V7.58333ZM1.08333 5.41667V7.58333H2.16667V5.41667H1.08333ZM2.16667 7.58333C2.16667 8.18172 1.68172 8.66667 1.08333 8.66667V7.58333ZM2.16667 5.41667H1.08333C1.08333 4.81828 1.56828 4.33333 2.16667 4.33333V5.41667ZM6.5 2.16667H4.33333V3.25H6.5V2.16667ZM4.33333 3.25C3.73494 3.25 3.25 2.76506 3.25 2.16667H4.33333ZM4.33333 2.16667C4.33333 1.56828 4.81828 1.08333 5.41667 1.08333V2.16667H4.33333ZM6.5 10.8333V8.66667H7.58333V10.8333H6.5ZM7.58333 8.66667C7.58333 8.06828 7.09839 7.58333 6.5 7.58333V8.66667ZM6.5 10.8333C5.90161 10.8333 5.41667 10.3484 5.41667 9.75V10.8333H6.5ZM1.08333 2.16667H2.16667V1.08333H1.08333V2.16667ZM2.16667 1.08333C2.16667 0.484944 1.68172 0 1.08333 0V1.08333ZM2.16667 2.16667V1.08333H1.08333C1.08333 2.76506 1.56828 3.25 2.16667 3.25V2.16667ZM10.8333 10.8333H11.9167V9.75H10.8333V10.8333ZM11.9167 9.75C11.9167 9.15161 11.4317 8.66667 10.8333 8.66667V9.75ZM10.8333 10.8333C10.2349 10.8333 9.75 10.3484 9.75 9.75H10.8333V10.8333ZM10.8333 2.16667H9.75V3.25H10.8333V2.16667ZM9.75 2.16667C9.75 2.76506 10.2349 3.25 10.8333 3.25V2.16667ZM10.8333 2.16667V1.08333H11.9167V2.16667H10.8333Z"
+            fill="currentColor"
+          />
+        </svg>
+      ),
+    },
   ];
 };
 
@@ -144,6 +157,7 @@ type UserData = {
   first_name?: string;
   email?: string;
   image?: string;
+  scope?: string;
 };
 
 export function Sidebar() {
@@ -361,6 +375,16 @@ export function Sidebar() {
                 <p className="font-unbounded font-[500] text-[16px] text-[#262626] mb-[5px]">
                   {userName}
                 </p>
+                {userData?.scope && (
+                  <p className="font-montserrat font-[400] text-[10px] text-[#5E5E5D] mt-1">
+                    Тип профілю: <span style={{ color: '#347AEC' }}>{
+                      userData.scope === 'personal' ? 'особистий' :
+                      userData.scope === 'recruiter' ? 'рекрутер' :
+                      userData.scope === 'company' ? 'компанія' :
+                      userData.scope
+                    }</span>
+                  </p>
+                )}
               </div>
             )}
             {isAuthenticated ? (
@@ -399,7 +423,7 @@ export function Sidebar() {
               {navItems.map((item, index) => {
                 const isActive = 
                   (item.href === '/tests' && (location.pathname === '/tests' || location.pathname === '/ua/tests' || location.pathname === '/en/tests')) ||
-                  (item.href === '/about' && (location.pathname === '/about' || location.pathname === '/ua/about' || location.pathname === '/en/about')) ||
+                  (item.href === '/my-profile/about' && (location.pathname === '/my-profile/about' || location.pathname === '/ua/my-profile/about' || location.pathname === '/en/my-profile/about')) ||
                   (item.href === '/articles' && (location.pathname === '/articles' || location.pathname === '/ua/articles' || location.pathname === '/en/articles' || location.pathname === '/news' || location.pathname === '/ua/news' || location.pathname === '/en/news'));
                 return (
                   <li key={item.label}>
